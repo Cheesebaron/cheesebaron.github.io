@@ -1,0 +1,15 @@
+---
+layout: post
+title: Disable Narrator in Windows 8
+date: '2012-08-27T16:54:00.001+02:00'
+author: Tomasz Cielecki
+tags:
+- Windows
+- Shortcuts
+- Windows 8
+modified_time: '2012-08-28T22:57:05.643+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-3052323146627897475
+blogger_orig_url: http://blog.ostebaronen.dk/2012/08/disable-narrator-in-windows-8.html
+---
+
+I am using <a href="http://synergy-foss.org/" target="_blank">Synergy </a>on my work setup, where the server runs on a iMac, to that iMac computer an Apple keyboard is connected. On such a keyboard the <b>Windows</b> button and <b>Alt</b> button are switched. So when using my mouse and keyboard on my Windows PC and using Visual Studio with ReSharper, trying to press <b>Alt+Enter</b> for some ReSharper commands, I sometimes accidentally press the <b>Win+Enter</b> combination instead. This opens up the Narrator in Windows 8, which is super annoying! I could not find an official way to disable this, but I found out that changing the permissions for the currently running user helped out a lot.<br />So here is what I did:<br /><br /><ul><li>Navigate to <b>%systemroot%\System32</b></li><li>In this folder a file called <b>Narrator.exe</b>&nbsp;is to be found</li><li>Right click the file and choose <b>Properties</b></li><li>Choose the <b>Security</b>&nbsp;tab and press <b>Advanced</b></li><li>In the top of the window press <b>Change</b>&nbsp;to change the Owner permissions</li><li>In the text field write your username and press <b>OK</b>&nbsp;to all the dialogs</li></ul><div>Now you should be able to change the permissions of the file, this is where we remove all the permissions from your user and the user back to system, this way your user will not be able to start the Narrator.</div><div><ul><li>Right click the <b>Narrator</b>&nbsp;file again and choose <b>Properties </b>and <b>Security</b>&nbsp;tab</li><li>Press <b>Advanced</b></li><li>Now that you are the owner you can change permissions for other users. Choose your own user and press <b>Edit</b></li><li><i>Remove</i> the <b>Read &amp; Execute</b> and <b>Read</b>&nbsp;permissions and press <b>OK</b></li><li>Now press <b>Change</b>&nbsp;in the top under <i>Owner</i>&nbsp;and write <i>system</i>&nbsp;in the text field</li><li>Press <b>OK</b>&nbsp;to all dialogs</li></ul><div>Now you should have removed all your permissions and changed the owner permissions the system, which means you cannot open the program anymore. When pressing the <b>Win+Enter</b>&nbsp;combination nothing should happen now. Enjoy!</div></div>

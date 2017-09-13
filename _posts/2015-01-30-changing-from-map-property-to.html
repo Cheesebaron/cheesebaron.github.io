@@ -1,0 +1,16 @@
+---
+layout: post
+title: Changing from Map property to GetMapAsync() on MapFragment
+date: '2015-01-30T17:13:00.003+01:00'
+author: Tomasz Cielecki
+tags:
+- GooglePlay
+- Xamarin.Android
+- Google Maps
+- Xamarin
+modified_time: '2015-01-30T17:13:44.607+01:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-1252426551839822155
+blogger_orig_url: http://blog.ostebaronen.dk/2015/01/changing-from-map-property-to.html
+---
+
+Recently the <i>Map</i> property on the <i>MapFragment</i> was marked <b>obsolete</b>. Instead, we now have to use the <i>GetMapAsync()</i> method. However, that method expects a callback object. Hence, we need slightly more code to not have our code use obsolete stuff.<br /><br /><div>For the callback we need to implement the <i>IOnMapReadyCallback</i> interface, which simply has a method which gives us the <i>GoogleMap</i> instance.</div><br /><br /><script src="https://gist.github.com/Cheesebaron/ac1b9445f5d1496ab1c9.js?file=MyOnMapReady.cs"></script> <div>As you can see I simply implemented that interface, and as all interfaces coming from the Java world which expects a Dispose() and Handle implementation we need to inherit from <i>Java.Lang.Object</i>. I also added an event to that class instead of passing a reference of my Fragment into that class.</div><br /><br /><div>Now you might be using the <i>SetupIfNeeded()</i> method which Xamarin also uses in their samples and is called in <i>OnCreate()</i> and <i>OnResume()</i> and where ever you feel like it. For that purpose I have adapted that to use the callback class.</div><br /><br /><script src="https://gist.github.com/Cheesebaron/ac1b9445f5d1496ab1c9.js?file=Usage.cs"></script>

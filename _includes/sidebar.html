@@ -1,0 +1,54 @@
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="{{ site.baseurl }}">
+          {{ site.title }}
+        </a>
+      </h1>
+      <p class="lead">{{ site.description }}</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
+
+      {% comment %}
+        The code below dynamically generates a sidebar nav of pages with
+        `layout: page` in the front-matter. See readme for usage.
+      {% endcomment %}
+
+      {% assign pages_list = site.pages %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+          {% if node.layout == "page" %}
+            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      <a class="sidebar-nav-item" href="{{ site.url }}/feed.xml">Feed</a>
+    </nav>
+
+    <div style="clear:both; margin:0 auto;">
+      <div style="float:left; margin-right:10px;">
+        <a href="https://mvp.microsoft.com/en-us/mvp/Tomasz%20%20Cielecki-5002473">
+          <img src="{{ site.url }}/public/images/mvp-small.png" width="80px" alt="Microsoft MVP"></img>
+        </a>
+      </div>
+      <div style="float:left; margin-right:10px;">
+        <a href="https://planetxamarin.com">
+          <img src="{{ site.url }}/public/images/planet-xamarin-portrait.png" width="80px" alt="Planet Xamarin Featured Blog"></img>
+        </a>
+      </div>
+      <div style="float:left;">
+        <a href="https://university.xamarin.com/certification?q=tomasz@ostebaronen.dk#verify">
+          <img src="{{ site.url }}/public/images/xamarin-certified-developer.png" width="100px" alt="Xamarin Certified Mobile Developer"></img>
+        </a>
+      </div>
+    </div>
+
+    <div style="clear:both">
+      <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+    </div>
+  </div>
+</div>

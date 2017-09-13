@@ -1,0 +1,17 @@
+---
+layout: post
+title: Removing shadow from NavigationBar and TabBar on iOS
+date: '2015-10-16T11:27:00.000+02:00'
+author: Tomasz Cielecki
+tags:
+- Xamarin.iOS
+- Shadow
+- TabBar
+- NavigationBar
+- Xamarin
+modified_time: '2015-10-16T11:32:59.327+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-4364477041936318899
+blogger_orig_url: http://blog.ostebaronen.dk/2015/10/removing-shadow-from-navigationbar-and.html
+---
+
+I am making an app where I don't want to display the shadow underneath the NavigationBar and the top gradient on a TabBar.<br /><div><br /></div><div>For some reason the Apple SDK does not provide a simple boolean Property where you can just disable it. A lot of solutions on StackOverflow requires you to set a background image and a shadow image to remove it entirely.</div><div><br /></div><div>Digging through solutions a bit I found that these two ways seem to work pretty well.</div><div><br /></div><div>So for the NavigationBar, what you do is traverse through all subviews to find the UIImageView which is the shadow and simple remove that from showing up. This is done as follows.</div><div><br /><script src="https://gist.github.com/Cheesebaron/6effc2a2822e9644d6c8.js?file=NavigationBar.cs"></script><br /></div><div>For the TabBar it is slightly different. It has a member variable, which is private, so you cannot get hold of it directly. However, using the&nbsp;<i>SetValueForKey()</i>&nbsp;method, which all <i>NSObject's</i>&nbsp;have, you can set that variable to true. <br /><br /><script src="https://gist.github.com/Cheesebaron/6effc2a2822e9644d6c8.js?file=TabBar.cs"></script></div><div>See the difference?  <br /><div class="separator" style="clear: both; text-align: center;"><a href="http://i.imgur.com/tXk4Ei8.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://i.imgur.com/tXk4Ei8.png" height="320" width="179" /></a></div><div class="separator" style="clear: both; text-align: center;"><a href="http://i.imgur.com/KGAChYI.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://i.imgur.com/KGAChYI.png" height="320" width="180" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div><br /></div>

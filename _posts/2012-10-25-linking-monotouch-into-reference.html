@@ -1,0 +1,14 @@
+---
+layout: post
+title: Linking MonoTouch into Reference Assemblies
+date: '2012-10-25T11:43:00.000+02:00'
+author: Tomasz Cielecki
+tags:
+- MonoTouch
+- Visual Studio
+modified_time: '2012-10-25T11:43:13.103+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-746077720371274938
+blogger_orig_url: http://blog.ostebaronen.dk/2012/10/linking-monotouch-into-reference.html
+---
+
+<a href="https://github.com/follesoe/VSMonoTouch">Jonas Follesø made a nice Visual Studio 2010 extension</a> to allow for loading and compiling MonoTouch projects in Visual Studio. This requires us to copy over some dll files from a Mac computer to the computer running Windows. Once in a while a new version of MonoTouch is released and this process needs to be repeated. Since I am lazy I do not want to do this copy/paste work so I made a small bash script for this which copies the stuff over into a shared folder on my PC called VSMonoTouch. The folder is hard linked to the Reference Assemblies .NETFramework v1.0 folder.  So the script looks as follows <script class="brush: bash;" title="CopyVSMonoTouch.sh" type="syntaxhighlighter"><![CDATA[ #!/bin/bash  PWD="`pwd`" SOURCE="/Developer/MonoTouch/usr/lib/mono/2.1/" TARGET="$PWD/VSMonoTouch" read -d '' FRAMEWORKSTRING <<"EOF" <?xml version="1.0" encoding="utf-8"?><FileList Redist="v1.0" Name="v1.0" IncludeFramework="v4.0"></FileList>EOF  if [ ! -d "$SOURCE" ]; then  echo "MonoTouch is not installed!"  exit 1 fi  if [ ! -d "$TARGET" ]; then  mkdir "$TARGET" fi  cp -Rv "$SOURCE"* "$TARGET/"  if [ ! -d "$TARGET/RedistList" ]; then  mkdir "$TARGET/RedistList"  echo "$FRAMEWORKSTRING" > "$TARGET/RedistList/FrameworkList.xml"  fi ]]></script> The script lives in the Windows shared folder, such that when ran it copies it into it. I also link the VSMonoTouch folder the Reference Assemblies like so <script class="brush: ps;" type="syntaxhighlighter"><![CDATA[ mklink /J "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v1.0" C:\ENM\VSMonoTouch ]]></script> When a new version of MonoTouch is released I simply run the script :)

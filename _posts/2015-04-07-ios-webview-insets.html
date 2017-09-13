@@ -1,0 +1,17 @@
+---
+layout: post
+title: iOS WebView insets
+date: '2015-04-07T10:34:00.000+02:00'
+author: Tomasz Cielecki
+tags:
+- AutoLayout
+- Xamarin.iOS
+- Constraints
+- WebView
+- Xamarin
+modified_time: '2015-04-07T10:34:02.996+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-103964551510356664
+blogger_orig_url: http://blog.ostebaronen.dk/2015/04/ios-webview-insets.html
+---
+
+I have been battling some UI constraints on iOS and I have finally found a solution to how to solve this specific problem and just wanted to share.  <br /><br />My problem was that I had a <i>UIWebView</i>, which kept laying itself out underneath the <i>NavigationBar</i>&nbsp;in my controller. A quick fix would be to just set edges for the extended layout to none like so:<br /><br /><br /><script src="https://gist.github.com/Cheesebaron/e04c4c20e1ae513f8187.js?file=sample1.cs"></script> <br />However, this will make you lose the nice effect of views scrolling behind the <i>NavigationBar</i>, for instance if the web page you are displaying scrolls.<br />Enter insets. As the name kind of indicates you add some spacing into your view. There is a property called <i>AutomaticallyAdjustsScrollViewInsets</i>. However, for some reason it does not do anything in my case, so I had to manually adjust the inset, which I did in <i>ViewWillLayoutSubviews</i>&nbsp;as in <i>ViewDidLoad</i>&nbsp;the <i>TopLayoutGuide</i>&nbsp;is not ready yet and will give you <i>0</i>&nbsp;for its <i>Length</i>. Basically this is what I had to do:<br /><br /><br /><script src="https://gist.github.com/Cheesebaron/e04c4c20e1ae513f8187.js?file=sample2.cs"></script> <br />This tells both the <i>UIWebView's</i>&nbsp;internal <i>ScrollView</i>&nbsp;and the scroll bar that you want some space in the top equals to the height of the <i>NavigationBar</i>.

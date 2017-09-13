@@ -1,0 +1,19 @@
+---
+layout: post
+title: Disabling ActionBar menu items
+date: '2014-01-17T10:04:00.001+01:00'
+author: Tomasz Cielecki
+tags:
+- ActionBar
+- Mono for Android
+- C#
+- Views
+- User Experience
+- Xamarin.Android
+- Android
+modified_time: '2014-01-17T10:04:40.465+01:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-3755586948099310102
+blogger_orig_url: http://blog.ostebaronen.dk/2014/01/disabling-actionbar-menu-items.html
+---
+
+I have some use cases where I want to temporarily disable ActionBar menu items, such that they are not clickable, but also so they are a different color from the active ones. The default <i>SetEnabled</i>&nbsp;method on <i>IMenuItem</i>&nbsp;does not do this for you. Sure it disables the item, however the visual state does not change. Hence, I found a nifty way to change this and made my own <i>SetEnabled</i>&nbsp;extension method.<br /><div><br /></div><div><script src="https://gist.github.com/Cheesebaron/8470364.js"></script></div>Using this extension method can grey out menu items, so they appear disabled from a UX perspective. The method takes some more parameters, as it needs to get the resource id of the <i>Drawable</i>&nbsp;you want to use for the greyed out item and the current <i>Context, </i>such that it can get it from the application resources.

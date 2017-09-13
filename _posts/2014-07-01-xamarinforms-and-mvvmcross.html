@@ -1,0 +1,18 @@
+---
+layout: post
+title: Xamarin.Forms and MvvmCross
+date: '2014-07-01T13:23:00.002+02:00'
+author: Tomasz Cielecki
+tags:
+- Xamarin.iOS
+- Xamarin.Forms
+- MVVM
+- MvvmCross
+- Xamarin.Android
+- Xamarin
+modified_time: '2014-07-01T13:23:40.682+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-3277702096123849546
+blogger_orig_url: http://blog.ostebaronen.dk/2014/07/xamarinforms-and-mvvmcross.html
+---
+
+As promised during the Xamarin 3 webinar, I have made a small sample showing how to use <a href="https://xamarin.com/forms">Xamarin.Forms</a> along with <a href="https://github.com/MvvmCross/MvvmCross" target="_blank">MvvmCross</a>.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://raw.githubusercontent.com/Cheesebaron/Xam.Forms.Mvx/master/Screenshots/02d.detail.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="https://raw.githubusercontent.com/Cheesebaron/Xam.Forms.Mvx/master/Screenshots/02d.detail.png" width="192" /></a></div><br /><br />What I did was look at the code Stuart Lodge already had made in another private repository, and adapted this to use it with Xamarin.Forms. What it basically does is implement custom Presenter implementations, which work with the way Xamarin.Forms navigates its Pages, which is through a <i>NavigationPage</i> and simple Push and Pop methods. This is wrapped in a <i>PageNavigationProvider </i>in MvvmCross which is in turn leveraged by the custom presenter.<br /><br />Right now the sample has these presenters and MvvmCross specific classes built in, but will most likely in the future be pulled out and made into a plugin, which you can use in your own applications.<br /><br />So the sample itself is a very simple application, which allows you to search <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>&nbsp;for movies, it then fetches similar movies based on your search query and displays them. In turn you can then press an item in the list presenting the search results and get detailed information about the movie.<br /><br />The sample actually covers a lot of MvvmCross by using:<br /><br /><ul><li>ViewModels</li><li>Services</li><li>Custom Presenters</li><li>Bindings</li><li>Commands</li><li>Converters</li><li>Nuget</li></ul><div>You can get the sample on <a href="https://github.com/Cheesebaron/Xam.Forms.Mvx" target="_blank">Github</a></div>

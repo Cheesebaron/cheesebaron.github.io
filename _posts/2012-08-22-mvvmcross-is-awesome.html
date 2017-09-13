@@ -1,0 +1,19 @@
+---
+layout: post
+title: MvvmCross is Awesome!
+date: '2012-08-22T16:36:00.000+02:00'
+author: Tomasz Cielecki
+tags:
+- MonoTouch
+- Patterns
+- MVVM
+- Mono for Android
+- Android
+- WP7
+- iPhone
+modified_time: '2012-08-22T16:39:19.037+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-8217702352141515641
+blogger_orig_url: http://blog.ostebaronen.dk/2012/08/mvvmcross-is-awesome.html
+---
+
+I have just had my first breakthrough with <a href="https://github.com/slodge/MvvmCross" target="_blank">MvvmCross</a>,&nbsp;which was made by <a href="http://slodge.blogspot.co.uk/" target="_blank">Stuart Lodge</a>. I have been working a lot with MonoTouch and Mono for Android at my work and during my bachelor thesis and found it annoying that you had to write a lot of controller code to fill out views, update views and so on. On the other hand I was able to use <a href="http://msdn.microsoft.com/en-us/magazine/dd419663.aspx" target="_blank">Model-View-ViewModel</a> (short: MVVM) on Windows Phone 7, which more or less eliminates the need for controller code, where you just bind your ViewModel to the View and the ViewModel handles the state of the View and updates the Model as well (for more information read the <a href="http://msdn.microsoft.com/en-us/magazine/dd419663.aspx" target="_blank">Article Microsoft wrote on MVVM</a>).<br /><br />So what MvvmCross does is to bring this pattern to Mono for Android and MonoTouch, which enables a lot more code sharing between the platforms than was possible before. I was working on a large project before where the Model was reusable, but the Views and their Controller code had to be written on both the MonoTouch and Mono for Android platforms. Now with MVVM enabled on the two devices code sharing can be increased a lot more, where not only the model, but also the View states and additionally MvvmCross provides platform specific wrappers for: Opening web pages, playback of sound, creating sharing intents, phone calls, GeoLocation and much much more. Because of these wrappers, the Model and the ViewModel needs only to be written once and can be reused on all three platforms I target. Although there is also support for WinRT and there will be support for Windows Phone 8 when it gets released.<br /><br />So during the last couple of days I have been studying the Tutorials a lot on how the intended usage of MvvmCross is and have been using that knowledge on a project I am&nbsp;re-factoring&nbsp;to use the MVVM pattern all the way. What I have working now is a "simple" Settings page, which has the ability to save my model to the persistent storage on the devices. But it also gets some of its settings from the world wide web, which complicates things a bit. MvvmCross has the ability through some dependency injection to create services, which are&nbsp;accessible&nbsp;through the ViewModels, which I use for storing my model to the persistent storage, but also for fetching some of my settings from the WWW. The cool thing about this that all my code is contained in the ViewModel and these services and on WP7, Android and iPhone I have some simple Views bound to the ViewModel. No platform specific code at all! That I think is super awesome. All this thanks to the awesome MvvmCross project!

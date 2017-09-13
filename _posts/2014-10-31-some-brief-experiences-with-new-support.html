@@ -1,0 +1,21 @@
+---
+layout: post
+title: Some experiences with the new Support packages on NuGet
+date: '2014-10-31T17:11:00.003+01:00'
+author: Tomasz Cielecki
+tags:
+- GooglePlay
+- Mono for Android
+- SupportV4
+- SupportV7
+- MvvmCross
+- Xamarin.Android
+- Xamarin
+- MvxPlugins
+- Android
+modified_time: '2014-10-31T17:13:57.659+01:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-194324193585862693
+blogger_orig_url: http://blog.ostebaronen.dk/2014/10/some-brief-experiences-with-new-support.html
+---
+
+I spent some time moving over to the new Support packages Xamarin released on NuGet, instead of using the versions from the Component store.<br /><br />Jonathan Dick <a href="http://redth.codes/smarter-android-support-v4-v13-packages/">made a nice post</a> about what makes the packages on NuGet a bit more smarter than they were previously, which I find very interesting. However, it is not all happy times as there seems to be some caveats by using these packages.<br /><br />Hence, here are some findings that you might encounter when using them.<br /><br />I have some Android Library projects, each updated to the new NuGet packages. The Android Library projects seem all to have <i>$(TargetFrameworkVersion)</i> defined in the <i>.csproj</i> file, which comes from the setting in the project properties in the <i>Application</i> tab called <i>Compile using Android version</i>. This sets the <i>$(TargetFrameworkVersion)</i> in the project file. However in my Android Application projects, I previously had that same option set to <i>Use Latest Platform</i>. The problem with this, is that it does not seem to explicitly set that in the <i>csproj</i> file. This gives some problems when fetching the NuGet for the Application project, where NuGet might tell you that it is incompatible and simply not install it (not cool :( ).<br /><br />Another problem is that, say you have an Android Library project using Google Play services, this is also a NuGet package, which additionally brings in a lot of Support packages (including v4, v7, v13 (whoa!)). Now you do all your stuff with the Play services inside of the library, so you think you can suffice with simply adding the needed Support packages in your Android Application project. Lets say you only need <i>Fragment</i> backwards compatibility and you just pull in <i>Support v4</i>. This will give you a headache and throw a bunch of errors telling you that you have duplicate managed types.<br />The solution seems to match the packages you added in the Android Library project. So if you are using Google Play services in your Android Library project, you need the exact same packages in your Android Application project.<br /><br />Apart from these couple of things, it seems that the new packages work pretty well. It also seems that additional Support v7 packages have made it into NuGet and more are to come!<br /><br />I've switched the <a href="https://github.com/MvvmCross/MvvmCross/tree/3.5">MvvmCross "3.5" branch</a> and my own <a href="https://github.com/Cheesebaron/Cheesebaron.MvxPlugins/tree/threeandahalf">MvxPlugins "threeandahalf" branch</a> to use this new stuff.

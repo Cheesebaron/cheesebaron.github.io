@@ -1,0 +1,20 @@
+---
+layout: post
+title: Creating a MapMarker to imitate XML Drawable - Maps V2
+date: '2013-07-17T11:17:00.001+02:00'
+author: Tomasz Cielecki
+tags:
+- Custom View
+- Bitmap
+- Mono for Android
+- Xamarin.Android
+- Google Maps
+- BitmapDescriptor
+- Android
+- Maps
+modified_time: '2013-07-17T11:19:48.778+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-7568844396187364422
+blogger_orig_url: http://blog.ostebaronen.dk/2013/07/creating-mapmarker-from-xml-drawable.html
+---
+
+I spent a lot of time yesterday debugging why <i>BitmapDescriptorFactory</i> was throwing a <i>null</i> pointer exception all the time. After a while I realised it was only when I was using a <i>Drawable</i> I had created using XML, more specifically a <i>layer-list</i> with a <i>shape</i> and an <i>item</i> which has a<i> Drawable</i>. This should show up as a slightly translucent circle with an image on top, and works very fine when using it as a source for an <i>ImageView</i>. However, when trying to use it as <i>Icon</i> for a <i>Marker</i> with the new Google Maps v2 API, it just throws a <i>null </i>pointer exception, without much reason why :-(<br /><br />So from here I have two choices, either create an image with the desired marker, or draw it programatically on a <i>Bitmap</i> <i>Canvas.</i> The first one is easy enough and I will not show that here, it is just a simple image you pop into the <i>drawable</i> folders in your Android project. The latter is way more fun and could be useful to you. The sample will be using <a href="http://xamarin.com/monoforandroid" target="_blank">Xamarin.Android</a> to demonstrate how it is done there, however, it may be applicable to Java Android.<br /><br />So first you need to know how big you want to have the marker to be.<br /> <script class="brush: csharp;" type="syntaxhighlighter"><![CDATA[ var px = (int)TypedValue.ApplyDimension(                 ComplexUnitType.Dip, 60,                  Resources.DisplayMetrics); ]]></script><br />In this case I just set it to <b>60dp</b>, you can experiment with that. Now you have to do the drawing action. <br /><script class="brush: csharp;" type="syntaxhighlighter"><![CDATA[ //Create a Bitmap to draw on using(var bitmap = Bitmap.CreateBitmap(px, px,                       Bitmap.Config.Argb8888)) {   //Create a canvas to draw on   using (var canvas = new Canvas(bitmap))   {     //Create some Paint to draw with     using(var paint = new Paint(PaintFlags.AntiAlias))     {       //Give the Paint a color       paint.Color = Color.Argb(210, 204, 222, 204);       //Draw stuff with it, in this case a circle       canvas.DrawCircle(px / 2f, px / 2f, px / 2f, paint);        //Load additional Drawables to draw on top of the circle       using(var pin =                Resources.GetDrawable(Resource.Drawable.pin))       {         //Remember to set the bounds!         pin.SetBounds(0, 0, px, px);         pin.Draw(canvas);           }     }   }   var descriptor = BitmapDescriptorFactory.FromBitmap(bitmap);   ... ]]></script><br/>Now that you have your <i>BitmapDescriptor</i> you can set it as an Icon for the map <i>Marker</i>. <br/><script class="brush: csharp;" type="syntaxhighlighter"><![CDATA[ var markerOptions = new MarkerOptions()                         .SetPosition(latLng)                         .InvokeIcon(descriptor)                         .Draggable(true); _map.AddMarker(markerOptions); ]]></script><br/>There, done! 

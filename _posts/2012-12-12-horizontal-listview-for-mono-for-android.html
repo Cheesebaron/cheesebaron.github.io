@@ -1,0 +1,21 @@
+---
+layout: post
+title: Horizontal ListView for Mono for Android!
+date: '2012-12-12T13:59:00.000+01:00'
+author: Tomasz Cielecki
+tags:
+- MVVM
+- Mono for Android
+- Views
+- GitHub
+- MvvmCross
+- HorizontalListView
+- Android
+- HorizontalPager
+modified_time: '2012-12-14T20:22:16.664+01:00'
+thumbnail: http://i.ytimg.com/vi/dgi4b-Mo09k/0.jpg
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-8254425534680764258
+blogger_orig_url: http://blog.ostebaronen.dk/2012/12/horizontal-listview-for-mono-for-android.html
+---
+
+I have previously ported a nice <a href="https://github.com/Cheesebaron/MonoDroid.HorizontalPager" target="_blank">HorizontalPager </a>from Java to <a href="http://xamarin.com/monoforandroid" target="_blank">Mono for Android</a>, which works fine, however in order for it to work it needs to load all the views into the memory, which can produce a sluggish&nbsp;behavior&nbsp;if using some resource intensive views inside of it. This is where the<a href="https://github.com/Cheesebaron/Cheesebaron.HorizontalListView" target="_blank"> Horizontal ListView</a> is a lot better as it extends AdapterView instead of ViewGroup, which essentially means it is filled by an Adapter. Why is this good you might ask. This is both good but also very awesome because Adapters help&nbsp;minimizing&nbsp;the memory footprint as they load Views when they are actually needed, contrary to ViewGroup which does not contain such functionality per. default.<br /><br />The Horizontal ListView was ported from <a href="https://github.com/dinocore1" target="_blank">Paul Soucy's</a> <a href="https://github.com/dinocore1/DevsmartLib-Android/blob/master/devsmartlib/src/com/devsmart/android/ui/HorizontalListView.java" target="_blank">implementation for Java</a>&nbsp;and then additional functionality which adds Snap mode and also since I have been working a bit with <a href="https://github.com/slodge/MvvmCross" target="_blank">MvvmCross </a>lately a binding class has been added.<br /><br />You can check out the project out on <a href="https://github.com/Cheesebaron/Cheesebaron.HorizontalListView" target="_blank">GitHub</a>, where there are demo projects included for running on vanilla Mono for Android and one for running with MvvmCross!<br /><br /><b>Update!</b><br />I made a short demonstration video, see it here:<br /><div class="separator" style="clear: both; text-align: center;"><object width="320" height="266" class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="http://i.ytimg.com/vi/dgi4b-Mo09k/0.jpg"><param name="movie" value="http://www.youtube.com/v/dgi4b-Mo09k?version=3&f=user_uploads&c=google-webdrive-0&app=youtube_gdata" /><param name="bgcolor" value="#FFFFFF" /><param name="allowFullScreen" value="true" /><embed width="320" height="266"  src="http://www.youtube.com/v/dgi4b-Mo09k?version=3&f=user_uploads&c=google-webdrive-0&app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"></embed></object></div><br />

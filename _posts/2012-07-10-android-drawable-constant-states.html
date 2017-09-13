@@ -1,0 +1,15 @@
+---
+layout: post
+title: Android Drawable Constant States
+date: '2012-07-10T23:56:00.001+02:00'
+author: Tomasz Cielecki
+tags:
+- ActionBar
+- Mono for Android
+- Android
+modified_time: '2012-08-22T16:38:48.767+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-6952965903177649702
+blogger_orig_url: http://blog.ostebaronen.dk/2012/07/android-drawable-constant-states.html
+---
+
+I was playing around this evening with the <a href="https://github.com/Cheesebaron/MonoDroid.ActionBar" target="_blank">MonoDroid.ActionBar</a>&nbsp;to add some functionality to be able to change themes at run time. For this I had to be able to add new <i>Drawable </i>to be reused for each Action Bar Item. Apparently&nbsp;when you set multiple views <i>BackgroundDrawable </i>with the same <i>Drawable</i>&nbsp;instance, it shares it state between these views. So in my case my <i>Drawable</i>&nbsp;was defined in <i>XML</i>&nbsp;and was a item selector for a button so that a different <i>Drawable</i>&nbsp;can be shown for each of the states: pressed, focused and so on. Then when pressing the items in the Action Bar, triggered the states for some of the other Action Bar Items, so when pressing one button the the state of another button was triggered.<br /><br />I browsed around the world wide web and found some solutions using the method <i>Mutate()</i>&nbsp;which essentially should remove the shared Constant State in the <i>Drawable, </i>but as it still was the same exact reference I passed along nothing changed. Hence I was forced to duplicate the <i>Drawable</i>:<br /><br /><pre class="brush:csharp; highlight: [2]">view.SetBackgroundDrawable(<br />    ItemBackgroundDrawable.GetConstantState().NewDrawable()<br />);<br /></pre><br />Above code creates a new <i>Drawble</i>&nbsp;each time I add an Item to the Action Bar and eliminates the problems with the visual state of the Item.

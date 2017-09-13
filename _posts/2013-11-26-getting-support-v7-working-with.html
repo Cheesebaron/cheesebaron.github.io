@@ -1,0 +1,17 @@
+---
+layout: post
+title: Getting Support V7 working with MvvmCross
+date: '2013-11-26T22:52:00.000+01:00'
+author: Tomasz Cielecki
+tags:
+- ActionBar
+- SupportV7
+- MvvmCross
+- Xamarin.Android
+- Android
+modified_time: '2013-11-26T22:52:02.267+01:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-3242530102677126118
+blogger_orig_url: http://blog.ostebaronen.dk/2013/11/getting-support-v7-working-with.html
+---
+
+Recently Xamarin added Support V7 AppCompat and GridView to their Component store, which you now can use instead of ActionBarSherlock or LegacyBar and it is Google's official way to support ActionBar's on API's which natively do not support it. However it does not work straight out of the box and you need to mimic what <i>MvxActivity</i> does in your own implementation. So here's the code I used to re-create <i>MvxActivity</i> to inherit from <i>ActionBarActivity</i> instead of <i>Activity</i>, which Support V7 needs.<br /><br /><script src="https://gist.github.com/Cheesebaron/7666882.js"></script> This way you only need to replace <i>MvxActivity</i> with <i>MvxActionBarActivity</i> where needed and also add one of the AppCompat Themes to your Activity: <i>Theme = "@style/Theme.AppCompat.Light"</i>

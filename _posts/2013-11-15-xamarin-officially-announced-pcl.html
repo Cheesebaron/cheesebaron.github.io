@@ -1,0 +1,17 @@
+---
+layout: post
+title: Xamarin officially announced PCL support and more...
+date: '2013-11-15T22:09:00.001+01:00'
+author: Tomasz Cielecki
+tags:
+- Microsoft
+- Xamarin.iOS
+- PCL
+- Xamarin.Android
+- Xamarin
+modified_time: '2013-11-15T22:09:28.214+01:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-8707531495013203531
+blogger_orig_url: http://blog.ostebaronen.dk/2013/11/xamarin-officially-announced-pcl.html
+---
+
+It has been a little while since last update from me. Since then a lot of stuff has happened in the Xamarin world. They have teamed up with Microsoft and released official PCL support, while Microsoft has loosened up their licenses on Bcl and their HttpClient among others. This is really great news!<br /><br />I have already heard about people releasing their libraries for Xamarin because of the PCL support, among them is Jon Skeet, which is working with his team on <a href="http://nodatime.org/" target="_blank">Noda Time</a>. There was some questions about what is actually supported in the various profiles, and I have spent the day today to track that down and test various PCL's. For now I have only tested for async/await and Tasks support and which profile supports which targets and contains which subsets.<br /><br />This can be seen in the table below or by visiting <a href="https://docs.google.com/spreadsheet/pub?key=0AgHEgqqaasTkdDVMQWNURUNhSUdlZzV0Z2p3djlLQ3c&amp;single=true&amp;gid=3&amp;output=html" target="_blank">my Google Spreadsheet I have made with it. </a><br /><br /><iframe border="0" height="650px" src="https://docs.google.com/a/ostebaronen.dk/spreadsheet/ar?id=t5LAcTECaIGeg5tgjwv9KCw.05127075901634941194.4657352265977728947&amp;action=1&amp;tile=3&amp;rpert=20&amp;srow=0&amp;erow=35&amp;scol=0&amp;ecol=10&amp;fprt=false&amp;tfe=qg_136&amp;gsessionid=qeujfKfA8YM" width="100%"></iframe><br/><br />From what I can see the best choice for a profile to pick in your project seems to be either profile 78 or 158. The former is reported to not have Timer and ThreadPool in it and if you need support for Silverlight 5, profile 158 seems to be the best choice overall.

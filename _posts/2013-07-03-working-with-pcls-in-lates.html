@@ -1,0 +1,25 @@
+---
+layout: post
+title: Working with PCL's in the latest Xamarin.Android
+date: '2013-07-03T11:12:00.000+02:00'
+author: Tomasz Cielecki
+tags:
+- Async
+- MonoTouch
+- Xamarin.iOS
+- Magic
+- PCL
+- MvvmCross
+- WinRT
+- WP7
+- MVVM
+- Mono for Android
+- Windows 8
+- Xamarin.Android
+modified_time: '2013-07-04T00:03:27.953+02:00'
+thumbnail: http://i1.ytimg.com/vi/8Q5kcW1rhB8/0.jpg
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-2556820090554384143
+blogger_orig_url: http://blog.ostebaronen.dk/2013/07/working-with-pcls-in-lates.html
+---
+
+Recently Xamarin released version <a href="http://docs.xamarin.com/releases/android/xamarin.android_4/xamarin.android_4.7#Xamarin.Android_4.7.10" target="_blank">4.7.10 alpha of Xamarin.Android</a>, which stated:<br /><blockquote class="tr_bq"><i>"PCL support!<br />    (Cross your fingers, sacrifice your favorite meal under the full moon, and     your PCL projects should Just Work! Testing wanted.)"</i></blockquote>So I kind of wanted to find out if it really was true, and it also happens to be that I am doing a project which needs to fetch something from the Internet, which is great to test out HttpClient in PCL's as well. The project also uses Stuart Lodge's fantastic MvvmCross framework, also with the new PCL stuff, and everything seems to work. However there are some things you have to work around until Xamarin releases tooling that allows you to reference PCL's in your Android and iOS projects in the Visual Studio plugin.<br /><br />So what I have tried:<br /><ol><li>Download <a href="https://github.com/slodge/MvvmCross" target="_blank">MvvmCross from the GitHub Repo</a>, and rebuild the whole thing with the new Xamarin.Android version.</li><li>Create a new PCL Library project in either Xamarin Studio or Visual Studio. I choose to target WP8, Store apps and .NET 4.5.</li><li>Grabbed <i>prerelease</i> Microsoft.Net.Http package for the PCL. This also imports some Bcl stuff which allows you to use Async in the PCL. Now you should be able to use HttpClient and Async, sweet!</li><li>For the Android project, here what is tricky. VS will complain that the Android project does not support PCL's, but it is lying! What you can do is either manually add a reference in the <i>.csproj</i> file or open up the project in Xamarin Studio and do it there.</li><li>You will also have to grab the DLL's from the packages folder in your solution and import <i>System.Net.Http</i>, <i>System.Net.Http.Extensions</i> and <i>System.Net.Http.Primitives</i> from the <i>Microsoft.Net.Http</i> NuGet package you downloaded. I took if from the <i>portable-net40+sl4+win8+wp71 </i>folder.</li><li>Now do your MvvmCross stuff, I just bound a button to a Command in my ViewModel, which calls a method in a service, which then in turn uses HttpClient to fetch some stuff from a Web Service.</li></ol>This <i>should </i>also work for Xamarin.iOS and also on WP7 and WP8, Store Apps etc. As long as you use Microsofts BCL and Http packages in your projects.<br /><br />Made a video describing the whole thing in more details:<br /><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"><object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="http://i1.ytimg.com/vi/8Q5kcW1rhB8/0.jpg" height="266" width="320"><param name="movie" value="http://www.youtube.com/v/8Q5kcW1rhB8?version=3&f=user_uploads&c=google-webdrive-0&app=youtube_gdata" /><param name="bgcolor" value="#FFFFFF" /><param name="allowFullScreen" value="true" /><embed width="320" height="266"  src="http://www.youtube.com/v/8Q5kcW1rhB8?version=3&f=user_uploads&c=google-webdrive-0&app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"></embed></object></div>Sample code can be found in my <a href="https://github.com/Cheesebaron/RottenTomatoSample" target="_blank">GitHub repo</a>

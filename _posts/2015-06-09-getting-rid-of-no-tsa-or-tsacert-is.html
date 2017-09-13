@@ -1,0 +1,15 @@
+---
+layout: post
+title: Getting rid of "No -tsa or -tsacert is provided" when signing APKs
+date: '2015-06-09T10:44:00.003+02:00'
+author: Tomasz Cielecki
+tags:
+- Build
+- Xamarin.Android
+- Xamarin
+modified_time: '2016-11-08T09:43:26.938+01:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-2692096621810237032
+blogger_orig_url: http://blog.ostebaronen.dk/2015/06/getting-rid-of-no-tsa-or-tsacert-is.html
+---
+
+Since JDK 1.7u51 Oracle introduced some extra strictness to the <i>jarsigner</i>, which is fine. Although, a lot of you might have seen some warnings when Xamarin.Android signs your APK, something in the lines of:<br /><br /><blockquote class="tr_bq"><blockquote class="tr_bq">Warning:</blockquote><blockquote class="tr_bq">No -tsa or -tsacert is provided and this jar is not time stamped. Without a timestamp, users may not be able to validate this jar after the signer certificate's expiration date (2xxx-xx-xx) or after any future revocation date.</blockquote></blockquote>I am using a property group like this in my csproj file, which defines where my keystore is and which passwords it has, for convenience:<br /><br /><script src="https://gist.github.com/Cheesebaron/926cf803d50c6cd6fd36.js?file=my.csproj"></script> I could not find any options to add parameters to the <i>jarsigner </i>command, but I did notice, that the alias always came in the end of the <i>jarsigner </i>command in the output window. So my small workaround is to simply append the alias with <i>-tsa http://timestamp.digicert.com</i>, which removes the warning (yay!) <br />So now the property group looks like: <br /><br /><script src="https://gist.github.com/Cheesebaron/926cf803d50c6cd6fd36.js?file=new.csproj"></script> <br />Although, I have recently put up APK files on the Play Store without this hack to remove the warnings and they were accepted just fine. So I guess... do whatever you want ;) 

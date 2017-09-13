@@ -1,0 +1,17 @@
+---
+layout: post
+title: MvvmCross Plugin Bootstrapping on iOS
+date: '2013-07-22T14:43:00.000+02:00'
+author: Tomasz Cielecki
+tags:
+- MonoTouch
+- Xamarin.iOS
+- iOS
+- Plugins
+- MvvmCross
+modified_time: '2013-07-22T14:43:25.680+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-613987046106865614
+blogger_orig_url: http://blog.ostebaronen.dk/2013/07/mvvmcross-plugin-bootstrapping-on-ios.html
+---
+
+Usually when creating bootstrap files to load Plugins in Mvx, you just write something in the lines of<br /><script class="brush: csharp;" type="syntaxhighlighter"><![CDATA[ public class VisibilityPluginBootstrap  : MvxPluginBootstrapAction<Cirrious.MvvmCross.Plugins.Visibility.PluginLoader>{ } ]]></script> However this does not work with iOS, because it is not as cool as WP8 and Android, as it does not use cool JIT compilation. Hence, in order to get Plugin Bootstrapping to work you have to use<i> MvxLoaderPluginBootstrapAction</i> instead to tell iOS AOT compiler a bit more about this Plugin.<br /><script class="brush: csharp;" type="syntaxhighlighter"><![CDATA[ public class VisibilityPluginBootstrap  : MvxLoaderPluginBootstrapAction<Cirrious.MvvmCross.Plugins.Visibility.PluginLoader  , Cirrious.MvvmCross.Plugins.Visibility.Touch.Plugin>{ } ]]></script> This way you avoid a nasty<i> MvxException</i> telling you that there is no Plugin registered for a specific type.<br /><br />Silly iOS...

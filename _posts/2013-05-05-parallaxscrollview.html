@@ -1,0 +1,17 @@
+---
+layout: post
+title: ParallaxScrollView
+date: '2013-05-05T15:31:00.001+02:00'
+author: Tomasz Cielecki
+tags:
+- Views
+- GitHub
+- Xamarin.Android
+- Android
+modified_time: '2013-05-05T15:32:20.873+02:00'
+thumbnail: http://i.ytimg.com/vi/mgygM1hZJEo/0.jpg
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-5555058378289931967
+blogger_orig_url: http://blog.ostebaronen.dk/2013/05/parallaxscrollview.html
+---
+
+I had a little time while watching the WEC race on Spa yesterday to port a pretty interesting View to work on Xamarin.Android. If you have ever played the Mario games, you might have noticed, that the background &nbsp;moves slowly while the foreground moves faster while you advance in the level. This is basically what this View does. How it works is that the ParallaxScrollView scales the Background View to fit the parallax factor. So lets say the factor is 0.5, this will mean the Background View is half the size of the Foreground View's content. When you scroll the Foreground it will scroll the Background at half speed of the Foreground. Setting the factor to 1 scrolls both Views at the same speed. Setting it above one, scrolls the Background faster than the Foreground. To have it look good, a View that stretches well is recommended, such as a repeatable pattern or such.<br /><br />I made a quick demo of the port, which is based on the original demo, only difference is that the Background View is a bit different.<br /><br /><div class="separator" style="clear: both; text-align: center;"><object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="http://i.ytimg.com/vi/mgygM1hZJEo/0.jpg" height="266" width="320"><param name="movie" value="http://www.youtube.com/v/mgygM1hZJEo?version=3&f=user_uploads&c=google-webdrive-0&app=youtube_gdata" /><param name="bgcolor" value="#FFFFFF" /><param name="allowFullScreen" value="true" /><embed width="320" height="266"  src="http://www.youtube.com/v/mgygM1hZJEo?version=3&f=user_uploads&c=google-webdrive-0&app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"></embed></object></div><br />You can find the ParallaxScrollView in my <a href="https://github.com/Cheesebaron/ParallaxScrollView" target="_blank">GitHub repo</a>, I also plan to release it in the Xamarin Component Store soon.<br /><br />Last but not least a shoutout to <a href="http://chrisjenx.co.uk/" target="_blank">Christopher Jenkins</a>&nbsp;(<a href="http://twitter.com/chrisjenx" target="_blank">@chrisjenx</a>) who originally made this View for Android and did all the hard work, I simply ported it to Xamarin.Android. Thanks a bunch for your work!

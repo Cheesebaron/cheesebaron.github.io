@@ -1,0 +1,16 @@
+---
+layout: post
+title: Enabling unknown sources on Phillips PUS7909 series Android smart TV
+date: '2015-06-06T19:31:00.000+02:00'
+author: Tomasz Cielecki
+tags:
+- TV
+- Phillips
+- PUS7909
+- Android
+modified_time: '2015-06-06T19:31:00.126+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-9222113360208474306
+blogger_orig_url: http://blog.ostebaronen.dk/2015/06/enabling-unknown-sources-on-phillips.html
+---
+
+I recently bought a TV, mainly to watch the upcoming Le Mans race, but also the occasional movie and such. To my surprise, though, the Play Store application only shows very few applications, and you cannot install own APK's on the TV and the Security Settings menu is hidden along with the Developer Settings menu.<br /><br />So in order to get into those you need a little bit of terminal-fu and a Terminal application. The latter you can get from the Play Store, just grab <a href="https://play.google.com/store/apps/details?id=jackpal.androidterm">"Terminal Emulator for Android"</a>, which should install without problems.<br /><br />To get to the menu where you can enable Unknown Sources so your can install 3rd party apps write:<br /><br /><script src="https://gist.github.com/Cheesebaron/15f58b7168a3d8bc5f31.js?file=sec"></script><br />This will bring up the Security Settings menu, where you can enable Unknown Sources. This allowed me to install apps such as YouSee Film & TV and other apps, which are not available in the Play Store on this device. <br /><br />To allow more applications being installed on the device, you can open the Developer Options and enable more applications from play store at the bottom. What it essentially does is to tell Play Store that the TV has a touch screen, which is what limits what is shown. To do so write the following in the terminal:<br /><script src="https://gist.github.com/Cheesebaron/15f58b7168a3d8bc5f31.js?file=dev"></script><br />Many apps only work with touch screens, which is why this is disabled, because it makes it super cumbersome to navigate the application. Even with the air pointer thingie built into the remote, which is super hard to get to point properly. What I did though, was to plug in a USB mouse for those apps which are super hard to use.

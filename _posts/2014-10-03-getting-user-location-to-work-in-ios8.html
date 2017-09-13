@@ -1,0 +1,17 @@
+---
+layout: post
+title: Getting User Location to work in iOS8
+date: '2014-10-03T15:01:00.000+02:00'
+author: Tomasz Cielecki
+tags:
+- CoreLocation
+- Xamarin.iOS
+- User Location
+- Xamarin
+- Maps
+modified_time: '2014-10-03T17:06:23.095+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-7448686386057614297
+blogger_orig_url: http://blog.ostebaronen.dk/2014/10/getting-user-location-to-work-in-ios8.html
+---
+
+There were some minor changes to how iOS8 works with core location. Previously when requesting the user's location on the <i>MapView</i> with <i>ShowsUserLocation</i> a nice pop-up would automagically show up asking the user if this was ok. Apple decided to make this a bit more flexible, allowing the developers to enter their own message. So if you compile your pre-iOS 8 app with the new SDK this might break, since you now have to manually call a method to get that pop-up to show.<br /><br />So the quick fix is to do the following:<br /><br />1. In your <i>info.plist</i> file add one of the following key/value pairs:<br /><br /><script src="https://gist.github.com/Cheesebaron/660441773b7b0b3ec397.js?file=info.plist"></script> 2. I then have a <i>Extensions.cs</i> where I keep my various extensions, for this case I've just made a couple of checks to whether the selectors are available on the platform, so the code won't crash on previous versions of iOS.<br /><br /><script src="https://gist.github.com/Cheesebaron/660441773b7b0b3ec397.js?file=Extensions.cs"></script> 3. Remove your previous call to <i>mapView.ShowsUserLocation</i> and do the following instead: <br /><script src="https://gist.github.com/Cheesebaron/660441773b7b0b3ec397.js?file=MapViewController.cs"></script><br />Now you respond to the <i>AuthorizationChanged </i>Event and set the <i>ShosUserLocation </i>flag accordingly. <br /><br /><br /><b>Edit (3/10/2014 17:00):</b><br />Now that I have had the chance to play a bit more with it, I have a couple of observations that might help you. First don't let go of the <i>CLLocationManager</i> instance, i.e. have it as a class field otherwise the dialog will disappear pretty quickly and it won't let you get location updates.<br /><b> </b><br />I didn't mention that you will have to do some checks on what iOS version you run at now and only call this code when on iOS 8 and higher, to do this you can do something as follows.<br /><script src="https://gist.github.com/Cheesebaron/660441773b7b0b3ec397.js?file=iOS8Check.cs"></script><br />

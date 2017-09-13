@@ -1,0 +1,16 @@
+---
+layout: post
+title: MvvmCross + WinRT and default Page templates...
+date: '2012-12-19T17:21:00.001+01:00'
+author: Tomasz Cielecki
+tags:
+- MVVM
+- MvvmCross
+- Windows 8
+- WinRT
+modified_time: '2012-12-19T17:21:32.132+01:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-6250247961706200537
+blogger_orig_url: http://blog.ostebaronen.dk/2012/12/mvvmcross-winrt-and-default-page.html
+---
+
+We've got an intern at my working place, which is doing some stuff on <i>WinRT</i> and wants to use some of the <a href="https://github.com/slodge/MvvmCross" target="_blank"><i>MvvmCross</i> </a>code I have written. So I sat down with him today to get him started.&nbsp;<div>We got the model code to compile and some of the code, which used Threads instead of Tasks. However our biggest problem was not to get stuff to compile! What was the biggest problem was an issue where at run time, our ViewModel was never set in our Page. So we set up a ton of break points and I think we got through almost all aspects of how MvvmCross locates Views and ViewModels and how it navigates etc., to no avail and had to ask <a href="http://slodge.blogspot.dk/" target="_blank">Stuart Lodge</a> on the <a href="http://jabbr.net/#/rooms/mvvmcross" target="_blank">Jabbr chat</a> for help.&nbsp;</div><div><br /></div><div>He gave us a hint about the <a href="https://github.com/slodge/MvvmCross/blob/vnext/Sample%20-%20TwitterSearch/TwitterSearch.UI.WinRT/Common/LayoutAwarePage.cs#L331" target="_blank"><i>OnNavigatedTo</i></a> method in the <a href="https://github.com/slodge/MvvmCross/blob/vnext/Sample%20-%20TwitterSearch/TwitterSearch.UI.WinRT/Common/LayoutAwarePage.cs" target="_blank"><i>LayoutAwarePage</i></a>. The call to <i>base.OnNavigatedTo(e)</i> is what sets up the <i>ViewModel</i> on a page, it was never called! So we starred blindly into the code until we saw that the default template for a Page on <i>WinRT</i> overrides the <i>OnNavigatedTo</i> method itself, and the implementation is empty. So by removing that everything started to work! So be sure to call <i>base.OnNavigatedTo</i> in your Page implementation!</div><div><div><br /></div></div>

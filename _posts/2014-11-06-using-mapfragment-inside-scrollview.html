@@ -1,0 +1,20 @@
+---
+layout: post
+title: Using MapFragment inside ScrollView
+date: '2014-11-06T12:10:00.000+01:00'
+author: Tomasz Cielecki
+tags:
+- AXML
+- ScrollView
+- HorizontalScrollView
+- Xamarin.Android
+- Google Maps
+- Xamarin
+- ListView
+- Maps
+modified_time: '2014-11-06T12:10:23.955+01:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-3976574460646186058
+blogger_orig_url: http://blog.ostebaronen.dk/2014/11/using-mapfragment-inside-scrollview.html
+---
+
+I have an app where I need to put a Map inside a <i>ScrollView</i>, doing so will make the <i>ScrollView</i> intercept all the touch events. So the solution is to call <i>RequestDisallowInterceptTouchEvent(true)</i> whenever you need the Map to scroll around, pinching it etc. The problem is that <i>MapFragment</i> or its properties do not expose any touch events, so it makes it a bit harder to find out when it is touched.<br /><br />I found a nice little code snippet, <a href="http://www.londatiga.net/it/programming/android/how-to-make-android-map-scrollable-inside-a-scrollview-layout/">Lorensius Londa posted on his blog</a>, for Java Android, which overlays the <i>MapFragment</i> with a <i>FrameLayout</i> and using the <i>FrameLayout</i> touch event. Using this exact technique help me achieve my goal as well. Here is the code I used.<br /><br /><script src="https://gist.github.com/Cheesebaron/db2b721c37f4066da25c.js?file=TouchableMapFragment.cs"></script> So as you see in the code there is a <i>TouchableWrapper</i> which simply fires some <i>Actions</i> whenever it was touched or the touch was released. This is grabbed by the <i>TouchableMapFragment</i> which subsequently fires the equivalent events. <br />The <i>Fragment</i> is used as follows in a <i>AXML</i> layout.<br /><script src="https://gist.github.com/Cheesebaron/db2b721c37f4066da25c.js?file=view.axml"></script> Then you can use the events in your <i>Activity</i> like so. <br /><script src="https://gist.github.com/Cheesebaron/db2b721c37f4066da25c.js?file=Activity.cs"></script> Now you should be able to navigate your Map when it is nested in a <i>ScrollView</i>.

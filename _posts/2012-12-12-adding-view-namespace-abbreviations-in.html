@@ -1,0 +1,16 @@
+---
+layout: post
+title: Adding View Namespace Abbreviations in MvvmCross
+date: '2012-12-12T14:12:00.001+01:00'
+author: Tomasz Cielecki
+tags:
+- Abbreviations
+- Mono for Android
+- MvvmCross
+- Android
+modified_time: '2012-12-12T14:13:25.682+01:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-7746429880278123753
+blogger_orig_url: http://blog.ostebaronen.dk/2012/12/adding-view-namespace-abbreviations-in.html
+---
+
+Do you have ridiculously long namespaces for your MvvmCross View bindings? Fear not MvvmCross includes a nice facility to help you easily come over this hurdle of having to type out long namespaces in the AXML view definitions.<br /><br />So instead of having to define something ridiculous like: <script class="brush: xml;" title="Main.axml" type="syntaxhighlighter"><![CDATA[ <cheesebaron.horizontallistview.droid.bindings.BindableHorizontalListView  android:id="@+id/listView"  ...  />]]></script> You can skip the long namespace by adding an abbreviation and get away with typing:  <script class="brush: xml;" title="Main.axml" type="syntaxhighlighter"><![CDATA[ <chsb.BindableHorizontalListView  android:id="@+id/listView"  ...  />]]></script> These abbreviations can be added easily with the following lines in your Setup file.  <script class="brush: csharp;" title="Setup.cs" type="syntaxhighlighter"><![CDATA[ protected override IDictionary<string, string>   ViewNamespaceAbbreviations {  get  {   var abbreviations = base.ViewNamespaceAbbreviations;   abbreviations["chsb"] =     "cheesebaron.horizontallistview.droid.bindings";   return abbreviations;  } } ]]></script> Just remember the key is the abbreviation and the value is the namespace you want to abbreviate. Easy, huh?

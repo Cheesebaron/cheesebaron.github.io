@@ -1,0 +1,18 @@
+---
+layout: post
+title: Identifying users with HockeyApp
+date: '2016-12-23T14:04:00.001+01:00'
+author: Tomasz Cielecki
+tags:
+- Xamarin.iOS
+- Crash
+- CrashAnalytics
+- HockeyApp
+- Xamarin.Android
+- Xamarin
+modified_time: '2016-12-23T14:04:48.643+01:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-6281224450156618278
+blogger_orig_url: http://blog.ostebaronen.dk/2016/12/identifying-users-with-hockeyapp.html
+---
+
+I use HockeyApp for crashes and App analytics. Most of the time users that are logged into the App have different accounts than what they use with HockeyApp, so most of the time I can't use the LoginManager.<br /><br />Instead, to Identify users I do the following instead.<br /><br /><h3>Android</h3><div>Create an implementation of <i>CrashManagerListener</i>, which overrides <i>UserID</i>, <i>Contact</i> and <i>Description</i>. </div><div><script src="https://gist.github.com/Cheesebaron/5bf6f8cf9f16704cdb901adbc77cafc1.js?file=MyCrashManagerListener.cs"></script></div><div>Then use it as follows when registering the <i>CrashManager</i></div><div><script src="https://gist.github.com/Cheesebaron/5bf6f8cf9f16704cdb901adbc77cafc1.js?file=AndroidUsage.cs"></script></div><h3>iOS</h3><div>On iOS you need to implement <i>BITHockeyManagerDelegate</i> where you need to override <i>UserIdForHockeyManager()</i>, <i>UserNameForHockeyManager()</i> and <i>UserEmailForHockeyManager()</i>. </div><div><script src="https://gist.github.com/Cheesebaron/5bf6f8cf9f16704cdb901adbc77cafc1.js?file=HockeyAppDelegate.cs"></script></div><div>Then right before starting the <i>SharedHockeyManager</i> you need to register your <i>Delegate</i>.</div><div><script src="https://gist.github.com/Cheesebaron/5bf6f8cf9f16704cdb901adbc77cafc1.js?file=iOSUsage.cs"></script></div><div>Now the <i>User</i> and <i>Contact</i> columns in a crash report on HockeyApp should be filled out with the values you provided.</div>

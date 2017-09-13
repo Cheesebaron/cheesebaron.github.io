@@ -1,0 +1,55 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Cheesy bits and bobs
+email: blog@ostebaronen.dk
+description: > # this means to ignore newlines until "baseurl:"
+  A blog about cross-platform mobile app development and other programming related
+  things. Written by <a href="https://twitter.com/Cheesebaron" target="_blank">@Cheesebaron</a>.
+baseurl: / # the subpath of your site, e.g. /blog
+url: "https://blog.ostebaronen.dk" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  Cheesebaron
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jemoji
+  - jekyll-gist
+
+author:
+  name: Tomasz Cielecki
+  email: blog@ostebaronen.dk
+  url: https://twitter.com/cheesebaron
+
+paginate: 5
+
+# jekyll-seo related stuff
+twitter:
+  username: Cheesebaron
+lang: en_US
+social:
+  name: Tomasz Cielecki
+  links:
+    - https://twitter.com/cheesebaron
+    - https://www.linkedin.com/in/tomaszcielecki
+    - https://github.com/cheesebaron
+    - https://keybase.io/cheesebaron
+logo: /public/images/logo.png
+
+# google analytics
+google_analytics: UA-87582415-1

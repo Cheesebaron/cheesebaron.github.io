@@ -1,0 +1,17 @@
+---
+layout: post
+title: How to Implement "IntPtr Handle and Dispose" in Xamarin.Android
+date: '2013-09-23T11:34:00.000+02:00'
+author: Tomasz Cielecki
+tags:
+- Java.Lang.Object
+- Mono for Android
+- Xamarin.Android
+- Android
+- Interfaces
+modified_time: '2013-09-23T11:34:27.548+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-925192811401453882
+blogger_orig_url: http://blog.ostebaronen.dk/2013/09/how-to-implement-intptr-handle-and.html
+---
+
+Now you might have come by some interfaces you want to implement and then all of the sudden they want you to implement a <i>Handle</i> property which is of the type <i>IntPtr</i> and a <i>Dispose</i> method. If you leave them be your code will most likely never get called. Then you scratch your head and wonder why this is, also you might ask yourself what this <i>Handle</i> is. The brief explanation is that the <i>Handle</i> provides an <i>Android Callable Wrapper</i> to Android. All native Android interfaces extend <i>IJavaObject</i> so they will expect that to be implemented. So the simple answer is that you do not implement <i>Handle</i> or <i>Dispose </i>yourself, however you inherit from <i>Java.Lang.Object</i> which does that for you. So your code will end up looking like this:<br /><br /><script class="brush: csharp;" type="syntaxhighlighter"><![CDATA[ class Stuff : Java.Lang.Object, IStuff { } ]]></script> <br />Given that <i>IStuff </i>extends<i> IJavaObject. </i>More on this topic can be read in the <a href="http://docs.xamarin.com/guides/android/advanced_topics/java_integration_overview/android_callable_wrappers" target="_blank">Xamarin documentation on Android Callable Wrappers</a>

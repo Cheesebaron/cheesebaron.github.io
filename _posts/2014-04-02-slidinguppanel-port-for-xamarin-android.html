@@ -1,0 +1,18 @@
+---
+layout: post
+title: SlidingUpPanel port for Xamarin Android!
+date: '2014-04-02T18:45:00.000+02:00'
+author: Tomasz Cielecki
+tags:
+- Mono for Android
+- Views
+- Xamarin.Android
+- Xamarin
+- SlidingUpPanel
+- Android
+modified_time: '2014-04-02T18:45:11.648+02:00'
+blogger_id: tag:blogger.com,1999:blog-3433282516380174051.post-572273487710463452
+blogger_orig_url: http://blog.ostebaronen.dk/2014/04/slidinguppanel-port-for-xamarin-android.html
+---
+
+I spent some of my time yesterday on a bit of porting Java to C#, instead of sitting in the sun and drinking beer. I found this pretty neat little library, <a href="https://github.com/umano/AndroidSlidingUpPanel" target="_blank"><i>AndroidSlidingUpPanel</i></a>, which adds a panel to your app, which slides up from either the bottom or top of your screen. The code itself is very inspired by the innards of <i>SlidingPaneLayout </i>from Support v4.<br /><br />Anyways, here is a GIF of what it looks like:<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://raw.githubusercontent.com/Cheesebaron/SlidingUpPanel/master/component/screenshots/animation.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="https://raw.githubusercontent.com/Cheesebaron/SlidingUpPanel/master/component/screenshots/animation.gif" width="191" /></a></div><br />Adding to your project is pretty simple. Simply grab it from the <a href="https://components.xamarin.com/view/slidinguppanel" target="_blank">Xamarin Component store</a>&nbsp;or if you prefer, you can clone or <a href="https://github.com/Cheesebaron/SlidingUpPanel" target="_blank">download it from GitHub</a>, which also has the component, but also the source code. There is a nice sample which will show you how to use this library, but if you just want to get started quickly. Simply add the following code to the <i>AXML</i>&nbsp;layout file you want this panel in:<br /><br /><br /><script src="https://gist.github.com/Cheesebaron/9937877.js"></script> <br />So the <i>SlidingUpPanelLayout</i> should be the root of your layout, and then it will have two children. First child is your content layout, what your originally had in your layout. The second child is the contents of the panel. Now you are good to go! For more info look at the docs on either the <a href="https://components.xamarin.com/gettingstarted/slidinguppanel" target="_blank">component store</a> or <a href="https://github.com/Cheesebaron/SlidingUpPanel" target="_blank">on GitHub</a>!
