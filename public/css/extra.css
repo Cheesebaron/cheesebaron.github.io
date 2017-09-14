@@ -1,0 +1,26 @@
+.post-tag {
+    display: inline;
+    background: rgba(255, 204, 0, 0.28);
+    padding: 0 .5rem;
+    margin-right: .5rem;
+    border-radius: 4px;
+    color: rgb(255, 204, 0);
+    font-size: 90%;
+    transition: all .1s ease-in-out;
+}
+
+.post-tag:before {
+    content: "\f02b";
+    font-family: FontAwesome;
+    padding-right: .5rem;
+}
+
+.post-tag:hover {
+    text-decoration: none;
+    background-color: rgb(255, 204, 0);
+    color: black;
+}
+
+.post-date {
+    display: inline-block;
+}
