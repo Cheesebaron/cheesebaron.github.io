@@ -15,7 +15,11 @@ Recently I had the need to patch a bunch of attributes in some XML files. Of cou
 Lets say you want to update your AndroidManifest.xml with the newest versions for your App. This is usually done in the root element of the manifest, funnily enough called `manifest`:
 
 ```csharp
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="dk.ostebaronen.cheesyapp" android:versionCode="1" android:versionName="1.2.3"
+<manifest 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dk.ostebaronen.cheesyapp"
+    android:versionCode="1"
+    android:versionName="1.2.3"
 ```
 
 The two attributes `android:versionCode` and `android:versionName` are the ones you want to update.
@@ -38,9 +42,11 @@ In the case of the Android Manifest, we only have the `android` namespace. In th
 With the settings in place we are ready to modify the Android Manifest with the `XmlPoke` alias. The XPath for the two attributes would be, `/manifest/@android:versionCode` and `/manifest/@android:versionName`. Usage in Cake would be as follows:
 
 ```csharp
-XmlPoke(manifestFilePath, "/manifest/@android:versionCode", versionCode, settings);
+XmlPoke(manifestFilePath, "/manifest/@android:versionCode",
+    versionCode, settings);
 
-XmlPoke(manifestFilePath, "/manifest/@android:versionName", versionName, settings);
+XmlPoke(manifestFilePath, "/manifest/@android:versionName",
+    versionName, settings);
 ```
 
 Tying all this information together in a Cake `Task`:
@@ -60,8 +66,10 @@ Task("Update-Android-Manifest-Version")
         }
     };
 
-    XmlPoke(manifestFilePath, "/manifest/@android:versionCode", versionCode, settings);
-    XmlPoke(manifestFilePath, "/manifest/@android:versionName", versionName, settings);
+    XmlPoke(manifestFilePath, "/manifest/@android:versionCode", 
+        versionCode, settings);
+    XmlPoke(manifestFilePath, "/manifest/@android:versionName", 
+        versionName, settings);
 });
 ```
 
@@ -70,7 +78,12 @@ For `versionCode` and `versionName` I like to use GitVersion to calculate these,
 Lets take a look at how this looks when you have a naked `xmlns` declaration. Here is what the root looks like for a Azure Service Fabric ApplicationManifest.xml file:
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="CheesyApp" ApplicationTypeVersion="1.2.3" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    ApplicationTypeName="CheesyApp"
+    ApplicationTypeVersion="1.2.3"
+    xmlns="http://schemas.microsoft.com/2011/01/fabric">
 ```
 
 In this case we still need some namespace declarations:
@@ -90,7 +103,8 @@ var settings = new XmlPokeSettings
 The query in this case would look like `/sf:ApplicationManifest/@ApplicationTypeVersion`. These Service Fabric Application Manifests also have some `ServiceManifestRef` nodes with `ServiceManifestVersion` for each of the services you have in your app. 
 
 ```xml
-<ApplicationManifest ApplicationTypeVersion="1.2.3" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest ApplicationTypeVersion="1.2.3"
+    xmlns="http://schemas.microsoft.com/2011/01/fabric">
     <Parameters>
         <Parameter />
         <Parameter />
