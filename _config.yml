@@ -40,8 +40,6 @@ author:
 
 paginate: 5
 
-tag_page: '/tags'
-
 # jekyll-seo related stuff
 twitter:
   username: Cheesebaron
