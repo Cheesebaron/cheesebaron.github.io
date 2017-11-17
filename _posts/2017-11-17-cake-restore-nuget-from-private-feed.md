@@ -3,6 +3,7 @@ layout: post
 title: Restore NuGets From Private Feed With Cake
 author: Tomasz Cielecki
 comments: true
+date: 2017-11-17 17:25:00 +0200
 tags:
 - Cake
 - NuGet
