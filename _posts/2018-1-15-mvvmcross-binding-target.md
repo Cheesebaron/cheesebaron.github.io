@@ -107,7 +107,11 @@ public class MyTableViewCell : MvxTableViewCell
     ...
     private UILabel _someView;
 
-    public string Text => _someView.Text;
+    public string Text 
+    { 
+        get => _someView.Text;
+        set => _someView.Text = value;
+    }
 
     private void CreateBindings()
     {
