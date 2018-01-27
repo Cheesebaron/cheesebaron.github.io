@@ -30,12 +30,12 @@
     margin: 0 auto;
 }
 
-.badges.leading {
+.leading {
     float:left;
     margin-right:10px;
 }
 
-.badges.trailing {
+.trailing {
     float:left;
 }
 
