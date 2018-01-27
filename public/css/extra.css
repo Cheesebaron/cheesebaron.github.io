@@ -24,3 +24,21 @@
 .post-date {
     display: inline-block;
 }
+
+.badges {
+    clear: both;
+    margin: 0 auto;
+}
+
+.badges.leading {
+    float:left;
+    margin-right:10px;
+}
+
+.badges.trailing {
+    float:left;
+}
+
+.clear {
+    clear: both;
+}
