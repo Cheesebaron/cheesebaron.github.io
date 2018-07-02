@@ -94,7 +94,7 @@ using (var fileStream = File.Create("/some/path"))
 Here is a little helper method for running simple commands and getting their result.
 
 ```csharp
-async Task<(int exitcode, string result)> RunCommand(params string[] command)
+async Task<(int exitCode, string result)> RunCommand(params string[] command)
 {
     string result = null;
     var exitCode = -1;
@@ -106,9 +106,9 @@ async Task<(int exitcode, string result)> RunCommand(params string[] command)
 
         if (exitCode == 0)
         {
-            using (var outputStreamReader = new StreamReader(process.InputStream))
+            using (var inputStreamReader = new StreamReader(process.InputStream))
             {
-                result = await outputStreamReader.ReadToEndAsync();
+                result = await inputStreamReader.ReadToEndAsync();
             }
         }
         else if (process.ErrorStream != null)
