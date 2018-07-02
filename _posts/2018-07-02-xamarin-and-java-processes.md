@@ -90,6 +90,8 @@ using (var fileStream = File.Create("/some/path"))
 }
 ```
 
+That is it! Now you should be an expert in native processes and how to launch them from your Android App. It is up to you the reader as an exercise to figure out how `OutputStream` works. Enjoy!
+
 [los]: https://lineageos.org/ "LineageOS Android Distribution web site"
 [lossu]: https://download.lineageos.org/extras "LineageOS Extras Downloads"
 [root]: {{ site.url }}/assets/images/root.jpg "Root dialog"
