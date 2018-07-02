@@ -3,7 +3,7 @@ layout: post
 title: Xamarin and Java Processes (root)
 author: Tomasz Cielecki
 comments: true
-date: 2018-7-2 21:50:00 +0200
+date: 2018-7-2 21:40:00 +0200
 tags:
 - Xamarin
 - Xamarin.Android
