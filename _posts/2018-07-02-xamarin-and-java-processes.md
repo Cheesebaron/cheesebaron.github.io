@@ -90,6 +90,53 @@ using (var fileStream = File.Create("/some/path"))
 }
 ```
 
+## Convenience Helper Method
+Here is a little helper method for running simple commands and getting their result.
+
+```csharp
+async Task<(int exitcode, string result)> RunCommand(params string[] command)
+{
+    string result = null;
+    var exitCode = -1;
+    try
+    {
+        var builder = new ProcessBuilder(command);
+        var process = builder.Start();
+        exitCode = await process.WaitForAsync();
+
+        if (exitCode == 0)
+        {
+            using (var inputStream = process.InputStream)
+            using (var fileStream = File.Create("/some/path"))
+            {
+                await inputStream.CopyToAsync(fileStream);
+            }
+
+        }
+        else if (process.ErrorStream != null)
+        {
+            using (var errorStreamReader = new StreamReader(process.ErrorStream))
+            {
+                var error = await errorStreamReader.ReadToEndAsync();
+                result = $"Error {error}";
+            }
+        }
+    }
+    catch (IOException ex)
+    {
+        result = $"Exception {ex.Message}";
+    }
+
+    return (exitCode, result);
+}
+```
+
+Usage would be something like.
+
+```csharp
+var (exitCode, result) = await RunCommand("su", "-c", "cat /data/misc/vpn/state");
+```
+
 That is it! Now you should be an expert in native processes and how to launch them from your Android App. It is up to you the reader as an exercise to figure out how `OutputStream` works. Enjoy!
 
 [los]: https://lineageos.org/ "LineageOS Android Distribution web site"
