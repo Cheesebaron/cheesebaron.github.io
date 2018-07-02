@@ -106,12 +106,10 @@ async Task<(int exitcode, string result)> RunCommand(params string[] command)
 
         if (exitCode == 0)
         {
-            using (var inputStream = process.InputStream)
-            using (var fileStream = File.Create("/some/path"))
+            using (var outputStreamReader = new StreamReader(process.InputStream))
             {
-                await inputStream.CopyToAsync(fileStream);
+                result = await outputStreamReader.ReadToEndAsync();
             }
-
         }
         else if (process.ErrorStream != null)
         {
