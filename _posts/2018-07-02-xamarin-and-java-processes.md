@@ -135,7 +135,16 @@ Usage would be something like.
 var (exitCode, result) = await RunCommand("su", "-c", "cat /data/misc/vpn/state");
 ```
 
-That is it! Now you should be an expert in native processes and how to launch them from your Android App. It is up to you the reader as an exercise to figure out how `OutputStream` works. Enjoy!
+This would return with the `exitCode` 0 if everything went well, and the string `result` would contain something like.
+
+```
+ppp0
+10.0.0.42/32
+0.0.0.0/0
+109.226.17.2 144.117.5.51
+```
+
+Nice! Now you should be an expert in native processes and how to launch them from your Android App. It is up to you the reader as an exercise to figure out how `OutputStream` works. Enjoy!
 
 [los]: https://lineageos.org/ "LineageOS Android Distribution web site"
 [lossu]: https://download.lineageos.org/extras "LineageOS Extras Downloads"
