@@ -33,7 +33,7 @@ A process has an exit code. 0 means everything was OK, anything else than 0 mean
 ## Starting a Process On Android
 On Android you can start a native Process using with `Java.Lang.Runtime.GetRuntime().Exec(<command>)`, which will return a `Java.Lang.Process`. Alternatively (also preferred way) if you need more control you can use `Java.Lang.ProcessBuilder`, which allows you to redirect stdin, stdout, stderr. Its `Start()` method, similarly to `Exec()` gives you a `Java.Lang.Process`. This object reflects the Linux process and has streams for stdin, stdout and stderr. These are our way into reading what the process writes out.
 
-Xamarin has some nice helpers for us in the `Java.Lang.Process` they expose. Instead of blocking when we want to wait for the process to finish, they have added `WaitForAsync()`, which is very nice. Also the streams for stdin, stdout and stderr are nice C# Streams that you can read and write to very easily. Namely `InputStream`, `OutputStream` and `ErrorStream`.
+[Xamarin][xam] has some nice helpers for us in the [`Java.Lang.Process`][proc] they expose. Instead of blocking when we want to wait for the process to finish, they have added `WaitForAsync()`, which is very nice. Also the streams for stdin, stdout and stderr are nice C# Streams that you can read and write to very easily. Namely `InputStream`, `OutputStream` and `ErrorStream`.
 
 ```csharp
 var builder = new ProcessBuilder("echo", "hello");
@@ -46,7 +46,7 @@ The example above runs the `echo` command, which just echoes what follows after.
 > Keep in mind that `WaitForAsync()` also can throw exceptions such as `IOException` and `SecurityException` depending on what you are doing.
 
 ### Reading From The Process
-When we start a Process, it should be considered that we start a process and execute some commands that redirect into our Process. Meaning most of the time, when we want to read the result from the commands we run, we will need to read from `InputStream`, rather than `OutputStream` which would be the usual stdout.
+When we start a Process, it should be considered that we start a process and execute some commands that redirect into this Process. Meaning most of the time, when we want to read the result from the commands we run, we will actually need to read from `InputStream`, rather than `OutputStream` which would be the usual stdout. However, since our Process is the one starting other Processes, then their output stream gets redirected into our input stream.
 
 Anyways, reading the stream is super easy.
 
@@ -95,3 +95,5 @@ That is it! Now you should be an expert in native processes and how to launch th
 [los]: https://lineageos.org/ "LineageOS Android Distribution web site"
 [lossu]: https://download.lineageos.org/extras "LineageOS Extras Downloads"
 [root]: {{ site.url }}/assets/images/root.jpg "Root dialog"
+[xam]: https://xamarin.com "Xamarin web site"
+[proc]: https://developer.xamarin.com/api/type/Java.Lang.Process/ "Java.Lang.Process Xamarin documentation"
