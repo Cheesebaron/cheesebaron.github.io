@@ -17,7 +17,7 @@ title: Cheesy bits and bobs
 email: http://www.google.com/recaptcha/mailhide/d?k=01Xl1ad5IaMm7YM87SgD-SWQ==&c=YmzW4YCl70mVh2HNSkJ5aNsU0YETft6IXrFI8J0nylg=
 description: > # this means to ignore newlines until "baseurl:"
   A blog about cross-platform mobile app development and other programming related
-  things. Written by <a href="https://twitter.com/Cheesebaron" target="_blank">@Cheesebaron</a>.
+  things. Written by <a href="https://twitter.com/Cheesebaron" target="_blank" rel="noreferrer">@Cheesebaron</a>.
 baseurl: '' # the subpath of your site, e.g. /blog
 url: "https://blog.ostebaronen.dk" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  Cheesebaron
