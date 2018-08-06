@@ -29,7 +29,6 @@ permalink: /:categories/:year/:month/:title.html
 markdown: kramdown
 plugins:
   - jekyll-feed
-  - jekyll-paginate
   - jekyll-sitemap
   - jemoji
   - jekyll-gist
