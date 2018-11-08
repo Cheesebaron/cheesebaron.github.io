@@ -32,6 +32,7 @@ plugins:
   - jekyll-sitemap
   - jemoji
   - jekyll-gist
+  - jekyll-paginate
 
 author:
   name: Tomasz Cielecki
