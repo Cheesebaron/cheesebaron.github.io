@@ -27,19 +27,19 @@ title: Home
   {% endfor %}
 </div>
 
+<!-- Pagination links -->
 <div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
   {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
+    <a href="{{ paginator.previous_page_path }}" class="pagination-item newer">
+      Newer
+    </a>
   {% else %}
     <span class="pagination-item newer">Newer</span>
+  {% endif %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="pagination-item older">Older</a>
+  {% else %}
+    <span class="pagination-item older">Older</span>
   {% endif %}
 </div>
