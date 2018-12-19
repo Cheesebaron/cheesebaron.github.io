@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some Common `ConstraintLayout` Pitfalls and Mistakes
+title: Some Common ConstraintLayout Pitfalls and Mistakes
 author: Tomasz Cielecki
 comments: true
 date: 2018-12-19 21:25:00 +0100
