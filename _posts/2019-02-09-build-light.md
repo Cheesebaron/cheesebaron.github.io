@@ -179,6 +179,6 @@ With some basic programming knowledge and a MCU and some LEDs you can make this 
 [adafruit]: https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices "NeoPixel General Best Practices"
 [neopixelbus]: https://github.com/Makuna/NeoPixelBus "NeoPixelBus library on GitHub"
 [dmamode]: https://github.com/Makuna/NeoPixelBus/wiki/ESP8266-NeoMethods#neoesp8266dma800kbpsmethod "NeoEsp8266Dma800KbpsMethod documentation"
-[gist]: https://gist.github.com/Cheesebaron/c95052a82970a74d52e891bbf638bc97
+[gist]: https://gist.github.com/Cheesebaron/a302d267e8f20eabee6c1123c96e8899
 [image_thumb]: {{ site.url }}/public/images/build-light/box_thumb.jpg
 [image]: {{ site.url }}/public/images/build-light/box.jpg
