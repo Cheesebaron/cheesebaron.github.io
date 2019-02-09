@@ -11,6 +11,8 @@ tags:
 - PlatformIO
 ---
 
+[![ESP8266 Azure DevOps build light](http://img.youtube.com/vi/wo0SESEObrU/0.jpg)](http://www.youtube.com/watch?v=wo0SESEObrU "ESP8266 Azure DevOps build light"
+
 I had a colleague at a previous work place, which had made a Philips Hue light, light up red when our bamboo build of our Xamarin Apps was failing, light up green if everything was OK. This is a pretty good way to have a visual indicator in the entire team if something is being checked in which is failing our builds. I decided to give this a go as well. However, with a Micro Controller Unit (MCU) instead, since it costs much less than a Philips Hue setup and it will require less moving parts. Philips Hue would need something else on the network telling it which color to switch to. With the MCU I would just need that.
 
 I have had spoken to a friend about making such a light. He has been dabbling a bit himself with home automation and MCUs himself. He told me he had the right stuff for me to try out and play with. So, he have me a WeMos D1 mini, a ESP8266 based MCU, a NeoPixel ring (a.k.a. W2812) with 8, individually controllable LEDs and a little box to house it in. He himself had made a remotely controllable night lamp out of similar parts.
@@ -176,6 +178,6 @@ With some basic programming knowledge and a MCU and some LEDs you can make this 
 [adafruit]: https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices "NeoPixel General Best Practices"
 [neopixelbus]: https://github.com/Makuna/NeoPixelBus "NeoPixelBus library on GitHub"
 [dmamode]: https://github.com/Makuna/NeoPixelBus/wiki/ESP8266-NeoMethods#neoesp8266dma800kbpsmethod "NeoEsp8266Dma800KbpsMethod documentation"
+[gist]: https://gist.github.com/Cheesebaron/c95052a82970a74d52e891bbf638bc97
 [image_thumb]: {{ site.url }}/public/images/build-light/box_thumb.jpg
 [image]: {{ site.url }}/public/images/build-light/box.jpg
-[gits]: https://gist.github.com/Cheesebaron/c95052a82970a74d52e891bbf638bc97
