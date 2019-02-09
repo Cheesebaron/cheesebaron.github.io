@@ -3,13 +3,11 @@ layout: post
 title: Make Your Own Azure DevOps Build Light
 author: Tomasz Cielecki
 comments: true
-date: 2019-02-09 17:00:00 +0100
+date: 2019-02-09 16:00:00 +0100
 tags:
 - Azure Functions
 - Azure DevOps
-- IoT
 - Xamarin
-- Visual Studio Code
 - PlatformIO
 ---
 
@@ -178,5 +176,5 @@ With some basic programming knowledge and a MCU and some LEDs you can make this 
 [adafruit]: https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices "NeoPixel General Best Practices"
 [neopixelbus]: https://github.com/Makuna/NeoPixelBus "NeoPixelBus library on GitHub"
 [dmamode]: https://github.com/Makuna/NeoPixelBus/wiki/ESP8266-NeoMethods#neoesp8266dma800kbpsmethod "NeoEsp8266Dma800KbpsMethod documentation"
-[image_thumb]: {{ site.url }}/public/images/build-light/box_thumb.png
-[image]: {{ site.url }}/public/images/build-light/box.png
+[image_thumb]: {{ site.url }}/public/images/build-light/box_thumb.jpg
+[image]: {{ site.url }}/public/images/build-light/box.jpg
