@@ -162,7 +162,7 @@ strip.SetPixelColor(pixelIndex, color);
 
 So setting pixel 2 to green you call: `strip.SetPixelColor(1, green)`, the index starts at 0.
 
-If you are interested in seeing the rest of the code I wrote for this little project you can check out this gist with all of it: https://gist.github.com/Cheesebaron/c95052a82970a74d52e891bbf638bc97
+If you are interested in seeing the rest of the code I wrote for this little project you can [check out this gist with all of it][gist]. 
 
 Here is a beauty shot of the device.
 
@@ -178,3 +178,4 @@ With some basic programming knowledge and a MCU and some LEDs you can make this 
 [dmamode]: https://github.com/Makuna/NeoPixelBus/wiki/ESP8266-NeoMethods#neoesp8266dma800kbpsmethod "NeoEsp8266Dma800KbpsMethod documentation"
 [image_thumb]: {{ site.url }}/public/images/build-light/box_thumb.jpg
 [image]: {{ site.url }}/public/images/build-light/box.jpg
+[gits]: https://gist.github.com/Cheesebaron/c95052a82970a74d52e891bbf638bc97
