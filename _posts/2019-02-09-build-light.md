@@ -11,7 +11,7 @@ tags:
 - PlatformIO
 ---
 
-[![ESP8266 Azure DevOps build light](http://img.youtube.com/vi/wo0SESEObrU/0.jpg)](http://www.youtube.com/watch?v=wo0SESEObrU "ESP8266 Azure DevOps build light"
+[![ESP8266 Azure DevOps build light](http://img.youtube.com/vi/wo0SESEObrU/0.jpg)](http://www.youtube.com/watch?v=wo0SESEObrU) "ESP8266 Azure DevOps build light"
 
 I had a colleague at a previous work place, which had made a Philips Hue light, light up red when our bamboo build of our Xamarin Apps was failing, light up green if everything was OK. This is a pretty good way to have a visual indicator in the entire team if something is being checked in which is failing our builds. I decided to give this a go as well. However, with a Micro Controller Unit (MCU) instead, since it costs much less than a Philips Hue setup and it will require less moving parts. Philips Hue would need something else on the network telling it which color to switch to. With the MCU I would just need that.
 
