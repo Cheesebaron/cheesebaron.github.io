@@ -173,6 +173,8 @@ Here is a beauty shot of the device.
 
 With some basic programming knowledge and a MCU and some LEDs you can make this project on your own. I have only scratched the surface with what you can use a MCU for. I might return in the future with more fun projects. But for now, I can now see a nice visual status of my Xamarin App builds when I am at the office, without having to open a web page and check it there. In addition I have ordered a big white salt crystal which is going to rest over the box so it will act as both a build light and a piece of decoration for the office!
 
+The cost of this little project is around $10, which is significantly less than getting started with Philips Hue or some other remotely controlled light.
+
 [platformio]: https://platformio.org/ "PlatformIO open source ecosystem for IoT development"
 [devopslist]: https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/list "Azure DevOps documentation for Builds list"
 [restapidocs]: https://docs.microsoft.com/en-us/rest/api/azure/devops/ "Azure DevOps REST API docs"
