@@ -65,9 +65,9 @@ private static async Task<IEnumerable<Build>> GetLatestBuild(int top = 4)
 From those builds I can now check the status with a little bit of LINQ gymnastics:
 
 ```csharp
-var anyFailed = lastBuild.Any(b => b.Result.ToLowerInvariant() == "failed");
+var anyFailed = lastBuild.Any(b => b.Status?.ToLowerInvariant() == "failed");
 var anyRunning = lastBuild.Any(b => b.Result.ToLowerInvariant() == "inprogress");
-var allFinished = lastBuild.All(b => b.Result.ToLowerInvariant() == "succeeded" && b.Status.ToLowerInvariant() == "completed");
+var allFinished = lastBuild.All(b => b.Result.ToLowerInvariant() == "succeeded" && b.Status?.ToLowerInvariant() == "completed");
 ```
 
 Then return the status depending of the status of these. For these statuses I want to light up the LEDs:
