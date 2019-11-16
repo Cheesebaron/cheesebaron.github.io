@@ -116,7 +116,7 @@ If you connect once to a network request, any subsequent requests will automatic
 
 This hopefully gives you an idea about how to connect to WiFi Networks with Android 10.
 
-You can check out the code from my GitHub repo here: https://github.com/Cheesebaron/Android10Wifi and have a go at playing with it yourself.
+You can check out the code from my [Android 10 WiFi Repository on GitHub](https://github.com/Cheesebaron/Android10Wifi) and have a go at playing with it yourself.
 
 [sp]: https://developer.android.com/about/versions/10/features#settings-panels "Android 10 New Features - Settings Panels"
 [suggest_notif]: {{ site.url }}/assets/images/android10wifi/suggest_notification.jpg "Screenshot of Wifi Suggestion Notification"
