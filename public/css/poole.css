@@ -59,10 +59,21 @@ html {
 }
 
 body {
-  color: #515151;
-  background-color: #fff;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #f8f8f8;
+    background: rgb(32, 32, 32);
+  }
+}
+@media (prefers-color-scheme: light) {
+  body {
+    color: #515151;
+    background-color: #fff;
+  }
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
@@ -84,9 +95,20 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-weight: bold;
   line-height: 1.25;
-  color: #313131;
   text-rendering: optimizeLegibility;
 }
+
+@media (prefers-color-scheme: dark) {
+  h1, h2, h3, h4, h5, h6 {
+    color: #d3d3d3;
+  }
+}
+@media (prefers-color-scheme: light) {
+  h1, h2, h3, h4, h5, h6 {
+    color: #313131;
+  }
+}
+
 h1 {
   font-size: 2rem;
 }
@@ -113,6 +135,17 @@ strong {
   color: #303030;
 }
 
+@media (prefers-color-scheme: dark) {
+  strong {
+    color: #d3d3d3;
+  }
+}
+@media (prefers-color-scheme: light) {
+  strong {
+    color: #303030;
+  }
+}
+
 
 /* Lists */
 ul, ol, dl {
@@ -132,8 +165,19 @@ hr {
   position: relative;
   margin: 1.5rem 0;
   border: 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  hr {
+    border-top: 1px solid rgb(34, 34, 34);
+    border-bottom: 1px solid rgb(32, 32, 32);
+  }
+}
+@media (prefers-color-scheme: light) {
+  hr {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #fff;
+  }
 }
 
 abbr {
@@ -155,8 +199,6 @@ pre {
 code {
   padding: .25em .5em;
   font-size: 85%;
-  color: #bf616a;
-  background-color: #f9f9f9;
   border-radius: 3px;
 }
 pre {
@@ -170,13 +212,31 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #f9f9f9;
 }
 pre code {
   padding: 0;
   font-size: 100%;
   color: inherit;
   background-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  pre {
+    background-color: #1b1b1b;
+  }
+  code {
+    color: #bf616a;
+    background-color: #1b1b1b;
+  }
+}
+@media (prefers-color-scheme: light) {
+  pre {
+    background-color: #f9f9f9;
+  }
+  code {
+    color: #bf616a;
+    background-color: #f9f9f9;
+  }
 }
 
 /* Pygments via Jekyll */
