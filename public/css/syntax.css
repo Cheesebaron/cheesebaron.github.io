@@ -63,3 +63,11 @@
 .css .o,
 .css .o + .nt,
 .css .nt + .nt { color: #999; }
+
+@media (prefers-color-scheme: dark) {
+  .highlight .nf { color: rgb(227, 115, 255) }
+  .highlight .s { color: #f77077 }
+  .highlight .kt { color: rgb(0, 195, 225); }
+  .highlight .k { color: #318cd2; }
+  .highlight .nt { color: #318cd2; }
+}

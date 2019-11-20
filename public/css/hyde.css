@@ -80,7 +80,7 @@ html {
   color: #fff;
   margin-top: 0;
   font-family: "Abril Fatface", serif;
-  font-size: 2.75rem;
+  font-size: 1.8rem;
 }
 
 /* Sidebar nav */
@@ -193,6 +193,18 @@ a.sidebar-nav-item:focus {
 .theme-base-09 .content a,
 .theme-base-09 .related-posts li a:hover {
   color: #d28445;
+}
+
+@media (prefers-color-scheme: dark) {
+  .theme-base-09 .sidebar {
+    background-color: #d2854587;
+  }
+  .sidebar {
+    color: rgba(255,255,255,.7);
+  }
+  .sidebar a {
+    color: #f8f8f8;
+  }
 }
 
 /* Yellow */
