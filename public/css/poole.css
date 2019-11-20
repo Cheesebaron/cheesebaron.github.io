@@ -61,18 +61,14 @@ html {
 body {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+  color: #515151;
+  background-color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     color: #f8f8f8;
     background: rgb(32, 32, 32);
-  }
-}
-@media (prefers-color-scheme: light) {
-  body {
-    color: #515151;
-    background-color: #fff;
   }
 }
 
@@ -96,16 +92,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   line-height: 1.25;
   text-rendering: optimizeLegibility;
+  color: #313131;
 }
 
 @media (prefers-color-scheme: dark) {
   h1, h2, h3, h4, h5, h6 {
     color: #d3d3d3;
-  }
-}
-@media (prefers-color-scheme: light) {
-  h1, h2, h3, h4, h5, h6 {
-    color: #313131;
   }
 }
 
@@ -140,12 +132,6 @@ strong {
     color: #d3d3d3;
   }
 }
-@media (prefers-color-scheme: light) {
-  strong {
-    color: #303030;
-  }
-}
-
 
 /* Lists */
 ul, ol, dl {
@@ -165,18 +151,14 @@ hr {
   position: relative;
   margin: 1.5rem 0;
   border: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   hr {
     border-top: 1px solid rgb(34, 34, 34);
     border-bottom: 1px solid rgb(32, 32, 32);
-  }
-}
-@media (prefers-color-scheme: light) {
-  hr {
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #fff;
   }
 }
 
@@ -225,7 +207,7 @@ pre code {
     background-color: #1b1b1b;
   }
   code {
-    color: #bf616a;
+    color: #f77077;
     background-color: #1b1b1b;
   }
 }
@@ -287,6 +269,13 @@ blockquote p:last-child {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  blockquote {
+    color: #d2d2d2;
+    border-left: .25rem solid #7e7e7e;
+  }
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -309,6 +298,20 @@ th {
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
   background-color: #f9f9f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  table {
+    border: 1px solid #7e7e7e;
+  }
+  td,
+  th {
+    border: 1px solid #7e7e7e;
+  }
+  tbody tr:nth-child(odd) td,
+  tbody tr:nth-child(odd) th {
+    background-color: #2e2e2e;
+  }
 }
 
 
@@ -404,6 +407,14 @@ tbody tr:nth-child(odd) th {
   margin-top: 0;
 }
 
+@media (prefers-color-scheme: dark) {
+  .page-title,
+  .post-title,
+  .post-title a {
+    color: #f8f8f8;
+  }
+}
+
 /* Meta data line below post title */
 .post-date {
   display: block;
@@ -467,6 +478,12 @@ tbody tr:nth-child(odd) th {
 /* Only provide a hover state for linked pagination items */
 a.pagination-item:hover {
   background-color: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  a.pagination-item:hover {
+    background-color: #2e2e2e;
+  }
 }
 
 @media (min-width: 30em) {
