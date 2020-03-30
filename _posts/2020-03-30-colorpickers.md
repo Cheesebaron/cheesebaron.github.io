@@ -21,5 +21,5 @@ Here is a couple of screen shots of what you can expect from the library.
 
 [![Advanced Color Picker][full]][full]
 
-[round]: {{ site.url }}/assets/images/colorpickers/round.png "Screenshot of round Color Picker"
+[round]: {{ site.url }}/assets/images/colorpickers/circle.png "Screenshot of round Color Picker"
 [full]: {{ site.url }}/assets/images/colorpickers/full.png "Screenshot of Advanced Color Picker"
