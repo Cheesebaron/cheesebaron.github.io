@@ -11,9 +11,9 @@ tags:
 
 Some years ago I ported over some Java color pickers to work with Xamarin. However, it didn't really cross my mind to release these as a NuGet package. However, due to demand I finally took the time to do so.
 
-You can find the NuGet package here: https://www.nuget.org/packages/Cheesebaron.ColorPickers/
+You can find the NuGet package here: [https://www.nuget.org/packages/Cheesebaron.ColorPickers/](https://www.nuget.org/packages/Cheesebaron.ColorPickers/)
 
-The source code as usual is available on GitHub: https://github.com/Cheesebaron/Cheesebaron.ColorPickers
+The source code as usual is available on GitHub: [https://github.com/Cheesebaron/Cheesebaron.ColorPickers](https://github.com/Cheesebaron/Cheesebaron.ColorPickers)
 
 Here is a couple of screen shots of what you can expect from the library.
 
