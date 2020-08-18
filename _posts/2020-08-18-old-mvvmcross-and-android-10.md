@@ -9,7 +9,7 @@ tags:
 - MvvmCross
 ---
 
-I have gotten questions from multiple people, about versions of MvvmCross prior to version 6.4.1. What they can do about being forced to target Android 10, API 29, or newer from November 2nd, when Google stops accepting updates to Apps targeting lower API levels.
+I have gotten questions from multiple people, about versions of MvvmCross prior to version 6.4.1. What they can do about being [forced to target Android 10, API 29, or newer from November 2nd, when Google stops accepting updates to Apps targeting lower API levels](https://support.google.com/googleplay/android-developer/answer/113469#targetsdk).
 
 MvvmCross 6.4.1 introduced some changes to MvxLayoutInflater that are needed in order for it to work with Android 10. However, these changes are for obvious reasons not part of previous releases.
 
