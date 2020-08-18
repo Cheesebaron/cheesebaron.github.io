@@ -21,7 +21,7 @@ You simply have to follow these 3 simple steps!
 2. Curl up in a ball
 3. Cry 😭
 
-Sorry, wait, no. Thats not it! These are the steps.
+Sorry, wait, no. Thats not it! Upgrade MvvmCross! But, if you really cannot upgrade then try these steps.
 
 1. Grab latest [MvxLayoutInflater](https://github.com/MvvmCross/MvvmCross/blob/develop/MvvmCross/Platforms/Android/Binding/Views/MvxLayoutInflater.cs)
 2. Create your own implementation of `MvxContextWrapper` which uses 1.
