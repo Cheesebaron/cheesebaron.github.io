@@ -33,7 +33,7 @@ OK, I lied that was 4 steps. You might also need a 5th step, where you target An
 Lets go through all steps.
 
 ## 1. Get latest MvxLayoutInflater
-Grab latest [MvxLayoutInflater](https://github.com/MvvmCross/MvvmCross/blob/develop/MvvmCross/Platforms/Android/Binding/Views/MvxLayoutInflater.cs), change namespace to something more suitable in your App. Rename the class `FixedLayoutInflater` or whatever you prefer.
+Grab latest [MvxLayoutInflater](https://github.com/MvvmCross/MvvmCross/blob/develop/MvvmCross/Platforms/Android/Binding/Views/MvxLayoutInflater.cs) and [MvxLayoutInflaterCompat](https://github.com/MvvmCross/MvvmCross/blob/develop/MvvmCross/Platforms/Android/Binding/Binders/MvxLayoutInflaterCompat.cs), change namespace to something more suitable in your App. Rename the class `FixedLayoutInflater` or whatever you prefer.
 
 ## 2. Create your own implementation of `MvxContextWrapper`
 We have to supply our own `MvxContextWrapper` class, the code in there is super simple. It just tells Android which LayoutInflater to use. We want to use our `FixedLayoutInflater` in there.
