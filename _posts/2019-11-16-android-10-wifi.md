@@ -64,7 +64,7 @@ You will also need to provide a `ConnectivityManager.NetworkCallback`, which wil
 
 This is excellent for scenarios, where you need to be on a specific network to do some specific operations. One thing to note is that you will only be able to connect to this network while the App is open. As soon as the App is closed, it disconnects the network.
 
-> Note: this connection will not have any Internet connectivity according to the Google docs. See the notes here: https://developer.android.com/guide/topics/connectivity/wifi-bootstrap For Internet connectivity Google suggest to use the Network Suggestions described above.
+> Note: this connection will not have any Internet connectivity according to the Google docs. See the notes in the [Android documentation about WiFi Bootstrapping](https://developer.android.com/guide/topics/connectivity/wifi-bootstrap). For Internet connectivity Google suggests to use the Network Suggestions described above.
 
 Let us look at some code.
 
