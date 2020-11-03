@@ -79,8 +79,8 @@ GetResultFromCode, simply parses the integers returned and turns them into a `Re
 private static Result GetResultFromCode(int code) =>
     code switch
     {
-        0 => Result.Ok,
-        2 => Result.Ok,
+        0 => Result.Ok, // newly added
+        2 => Result.Ok, // wifi already there
         _ => Result.Canceled
     };
 ```
