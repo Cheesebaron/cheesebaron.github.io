@@ -87,4 +87,4 @@ Running this code will show you a dialog looking something like this
 
 You can check out the code from my [Android 11 WiFi Repository on GitHub](https://github.com/Cheesebaron/Android11WiFi) and have a go testing it yourself.
 
-[dialog]: {{ site.url }}/assets/images/android11wifi/dialog.jpg "Screenshot of Save this network dialog"
+[dialog]: {{ site.url }}/assets/images/android11wifi/dialog.png "Screenshot of Save this network dialog"
