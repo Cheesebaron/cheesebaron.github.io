@@ -26,9 +26,11 @@ I guess the folks at Google got a bit backlash or they somehow changed their min
 The code for this looks something like this:
 
 ```csharp
-var intent = new Intent("android.settings.WIFI_ADD_NETWORKS");
+var intent = new Intent(
+    "android.settings.WIFI_ADD_NETWORKS");
 var bundle = new Bundle();
-bundle.PutParcelableArrayList("android.provider.extra.WIFI_NETWORK_LIST",
+bundle.PutParcelableArrayList(
+    "android.provider.extra.WIFI_NETWORK_LIST",
     new List<IParcelable>
     {
         new WifiNetworkSuggestion.Builder()
@@ -49,15 +51,19 @@ Then in `OnActivityResult` you can figure out whether any network in the list yo
 ```csharp
 if (requestCode == AddWifiSettingsRequestCode)
 {
-    if (data != null && data.HasExtra("android.provider.extra.WIFI_NETWORK_RESULT_LIST"))
+    if (data != null && data.HasExtra(
+        "android.provider.extra.WIFI_NETWORK_RESULT_LIST"))
     {
         var extras =
-            data.GetIntegerArrayListExtra("android.provider.extra.WIFI_NETWORK_RESULT_LIST")
+            data.GetIntegerArrayListExtra(
+                "android.provider.extra.WIFI_NETWORK_RESULT_LIST")
                 ?.Select(i => i.IntValue()).ToArray() ?? new int[0];
 
         if (extras.Length > 0)
         {
-            var ok = extras.Select(GetResultFromCode).All(r => r == Result.Ok);
+            var ok = extras
+                .Select(GetResultFromCode)
+                .All(r => r == Result.Ok);
             // if ok is true, BINGO!
             return;
         }
