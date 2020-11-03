@@ -12,8 +12,8 @@ tags:
 ---
 
 Android 10 messed up royally with removing the API to add networks and connect to it on a users device. The API was removed and as an alternative they gave us:
-1. A suggestion API, which shows a low priority notification, suggesting to connect to a given network. This notification would need to be swiped down a couple of times to reveal the YES/NO options. Then the device might chose not to connect to it anyways.
-2. A way to connecto a local network, not providing any Internet connectivity, through a System dialog appearing in the App. This dialog took forever to find your network. However, this method was not very useful for anyone as no Internet on this connection.
+1. A suggestion API, which shows a low priority notification, suggesting to connect to a given network. This notification would need to be swiped down a couple of times to reveal the YES/NO options. Then the device might choose not to connect to it anyways.
+2. A way to connect to a local network, not providing any Internet connectivity, through a System dialog appearing in the App. This dialog took forever to find your network. However, this method was not very useful for anyone as no Internet on this connection.
 
 The last alternative, but technically not a part of the API for connecting to WiFi, would be to show a settings panel, where the user could _manually_ enter credentials for a WiFi network in the list.
 
