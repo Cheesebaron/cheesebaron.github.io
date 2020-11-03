@@ -85,6 +85,6 @@ Running this code will show you a dialog looking something like this
 
 > Note: This code works and runs fine on a Google Pixel 3a XL running latest Android 11. However, on my OnePlus 8 running OP8_O2_BETA_3 opening the intent fails, because of OnePlus's Settings App does not implement the AppCompat theme, crashing. I've reported this issue to OnePlus but never heard back from them.
 
-You can check out the code from my [Android 11 WiFi Repository on GitHub](https://github.com/Cheesebaron/Android11Wifi) and have a go testing it yourself.
+You can check out the code from my [Android 11 WiFi Repository on GitHub](https://github.com/Cheesebaron/Android11WiFi) and have a go testing it yourself.
 
 [dialog]: {{ site.url }}/assets/images/android11wifi/dialog.jpg "Screenshot of Save this network dialog"
