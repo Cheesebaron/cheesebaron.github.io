@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Sponsors
+permalink: /sponsors/
 ---
 
 I am super fortunate to have people supporting my Open Source Software efforts and blogging.
