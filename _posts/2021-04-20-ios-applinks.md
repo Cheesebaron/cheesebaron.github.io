@@ -3,7 +3,7 @@ layout: post
 title: Universal AppLinks on iOS
 author: Tomasz Cielecki
 comments: true
-date: 2021-04-20 18:00:00 +0100
+date: 2021-04-20 16:00:00 +0100
 tags:
 - Xamarin
 - Xamarin.iOS
