@@ -3,7 +3,7 @@ layout: post
 title: New WiFi API in Android 11
 author: Tomasz Cielecki
 comments: true
-date: 2020-11-03 9:00:00 +0200
+date: 2021-03-11 9:00:00 +0200
 tags:
 - Xamarin
 - Xamarin.Android
