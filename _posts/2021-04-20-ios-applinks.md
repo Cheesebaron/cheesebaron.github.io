@@ -79,8 +79,9 @@ Go to Certificates, Identifiers & Profiles in the Apple Developer Portal. Here y
 In the list of Identifiers find your App and Edit it. Enable the "Associated Domains" entitlement
 [![Screenshot of Associated Domains option in Developer Portal][bundleid]][bundleid]
 
-Now go to any Provisioning profiles you have an regenerate them. You might be using Fastlane or something like that read the docs for your tool to download or regnerate provisioning profiles.
-After regenerating the Provisioning profiles, you might need to update any CI pipeline you may have with these new profiles.
+Now go to any Provisioning profiles you have an regenerate them. You might be using Fastlane or something like that. Read the docs for your tool to download or regnerate provisioning profiles.
+
+After regenerating the Provisioning profiles, you might need to update any CI pipeline and machines that you build on with these new profiles.
 
 ## 3. Adding Associated Domains to your `Entitlements.plist` files
 If you don't have a Entitlements.plist file, it is now time to create one. [Microsoft provides good docs for you to read more about how to create one][entitlementsdoc]. You will need to add all the domains you wish your Apps to open. These of course need to match the domains you added in the first step in the `apple-app-site-association` file.
@@ -140,7 +141,21 @@ private void CheckForAppLink(NSUserActivity userActivity)
 }
 ```
 
-## 5. Bonus: Handling custom schemes
+## 5. Debugging all of this
+This part is a huge pain. First of all, it appears to me, when you deploy an Application using Xcode or Visual Studio, the `swcd` process doesn't run and check the `apple-app-site-association` file. This means when you hit your URL in Safari or through a QR code, it will _not_ suggest to open your App.
+I had to grab builds from my CI pipeline for this to work 😢.
+
+But things to check:
+- `apple-app-site-association` is reachable
+- the URL you are hitting is not returning 404 (although it might actually still work)
+- entries in your `Entitlements.plist` match the association json file
+- if you have multiple Entitlements for different configurations, make sure you are using the correct one
+- check the console output on your device
+  - Xcode -> Window -> Devices & Simulators -> Devices -> Select device -> Open Console
+  - Click Errors and Faults
+  - add `swcd` in the search field
+
+## 6. Bonus: Handling custom schemes
 If you also need to handle custom URL schemes. The only thing you need to do is to register the schemes in your `Info.plist` file:
 
 ```xml
