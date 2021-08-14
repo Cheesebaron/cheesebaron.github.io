@@ -24,7 +24,7 @@ A big thank you to every sponsor here!
 ### elmah.io
 [![elmah.io](https://elmah.io/images/elmahio.png)](https://elmah.io)
 
-[Elmah.io](https://elmah.io) is a very cool monitoring platform for your .NET applications. Check out their web-site for full description of all their features.
+[elmah.io](https://elmah.io) is a very cool monitoring platform for your .NET applications. Check out their web-site for full description of all their features.
 
 ### JetBrains
 ![JetBrains](https://www.jetbrains.com/company/brand/img/jetbrains_logo.png){: width="138" }
