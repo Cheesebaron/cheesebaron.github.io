@@ -6,7 +6,8 @@ permalink: /sponsors/
 
 I am super fortunate to have people supporting my Open Source Software efforts and blogging.
 
-This page is a thank you to people supporting me through [GitHub Sponsors](https://github.com/sponsors/Cheesebaron). 
+## GitHub sponsors
+This is a thank you to people supporting me through [GitHub Sponsors](https://github.com/sponsors/Cheesebaron). 
 
 |         | GitHub  | Twitter |
 |---------|---------|---------|
@@ -14,3 +15,18 @@ This page is a thank you to people supporting me through [GitHub Sponsors](https
 
 
 Check out [my GitHub Sponsors page](https://github.com/sponsors/Cheesebaron) to learn more.
+
+## Product sponsors
+This is a list of some of the sponsors providing me access to their libraries, services and other helpful things.
+
+A big thank you to every sponsor here!
+
+### Elmah
+[![elmah.io](https://elmah.io/images/elmahio.png)](https://elmah.io)
+
+Elmah.io is a very cool monitoring platform for your .NET applications. Check out their web-site for full description of all their features.
+
+### JetBrains
+![JetBrains](https://www.jetbrains.com/company/brand/img/jetbrains_logo.png){: width="138" }
+
+[JetBrains](https://www.jetbrains.com/) kindly sponsors me with access to their Ultimate package, where I get access to products such as the JetBrains Rider IDE, probably the best IDE for writing .NET applications out there.
