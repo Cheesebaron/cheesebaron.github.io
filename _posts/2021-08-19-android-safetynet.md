@@ -136,6 +136,8 @@ public class AttestationResponse
 
 Alternatively Google provides a [sample to validate the JWT token yourself offline][offlinevalidate].
 
+Make sure you go through [this checklist] before you ship your SafetyNet validation to make sure you have covered all cases.
+
 All the code can be found in a [Sample Application I have made and published on GitHub][sample].
 
 [docs]: https://developer.android.com/training/safetynet/attestation.html
@@ -143,5 +145,6 @@ All the code can be found in a [Sample Application I have made and published on 
 [offlinevalidate]: https://github.com/googlesamples/android-play-safetynet/blob/master/server/csharp/OfflineVerify.cs
 [sample]: https://github.com/Cheesebaron/Xamarin-SafetyNet
 [gcc]: https://console.cloud.google.com
+[checklist]: https://developer.android.com/training/safetynet/attestation-checklist
 [noplay]: {{ site.url }}/assets/images/safetynet/noplay.png "Screenshot of Save dialog showing error about Google Play Services missing on device"
 [cloud-console1]: {{ site.url }}/assets/images/safetynet/cloud-console1.png "Screenshot of Google Cloud Console Android Device Verification search in Marketplace"
