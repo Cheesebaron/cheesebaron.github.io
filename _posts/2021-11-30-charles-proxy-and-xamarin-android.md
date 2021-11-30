@@ -3,7 +3,7 @@ layout: post
 title: Using Charles Proxy with Xamarin.Android
 author: Tomasz Cielecki
 comments: true
-date: 2021-11-30 19:00:00 +0100
+date: 2021-11-30 16:30:00 +0100
 tags:
 - Xamarin
 - Xamarin.Android
