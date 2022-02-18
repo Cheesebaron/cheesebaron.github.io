@@ -2,7 +2,6 @@
 layout: none
 permalink: .well-known/assetlinks.json
 ---
-
 [
     {
       "relation": ["delegate_permission/common.handle_all_urls"],
