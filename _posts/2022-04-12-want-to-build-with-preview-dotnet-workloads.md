@@ -3,7 +3,7 @@ layout: post
 title: Using Android Tiramisu Preview Workloads in Azure Pipelines
 author: Tomasz Cielecki
 comments: true
-date: 2022-04-12 11:30:00 +0200
+date: 2022-04-12 11:00:00 +0200
 tags:
 - Xamarin
 - dotnet
