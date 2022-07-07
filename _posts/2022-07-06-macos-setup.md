@@ -3,7 +3,7 @@ layout: post
 title: Easy Setup of Dev Tools on macOS with ZSH dotfiles
 author: Tomasz Cielecki
 comments: true
-date: 2022-07-06 16:30:00 +0200
+date: 2022-07-06 16:00:00 +0200
 tags:
 - macOS
 ---
