@@ -1,4 +1,2 @@
 User-agent: GPTBot
 Disallow: /
-
-Sitemap: {{ "sitemap.xml" | absolute_url }}
