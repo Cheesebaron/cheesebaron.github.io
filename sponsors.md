@@ -9,9 +9,10 @@ I am super fortunate to have people supporting my Open Source Software efforts a
 ## GitHub sponsors
 This is a thank you to people supporting me through [GitHub Sponsors](https://github.com/sponsors/Cheesebaron). 
 
-|         | GitHub  | Twitter |
+|         | GitHub  | Social |
 |---------|---------|---------|
-|![jelleavatar](https://avatars1.githubusercontent.com/u/3215626?s=200&u=2c9f78336d0cc17d3064b4d0e62cb120441ca8e5&v=4)| [Jelle Damen](https://github.com/JelleDamen) | [@JelleDamen](https://twitter.com/JelleDamen) |
+| <img src="https://avatars1.githubusercontent.com/u/3215626?s=200&u=2c9f78336d0cc17d3064b4d0e62cb120441ca8e5&v=4" alt="Jelle" width="200"/>| [Jelle Damen](https://github.com/JelleDamen) | [@JelleDamen](https://twitter.com/JelleDamen) |
+| <img src="https://avatars.githubusercontent.com/u/14846427?v=4" alt="Jasur" width="200"/> | [Jasur Sadikov](https://github.com/jasursadikov) | [u/jasursadikov](https://reddit.com/u/jasursadikov) |
 
 
 Check out [my GitHub Sponsors page](https://github.com/sponsors/Cheesebaron) to learn more.
