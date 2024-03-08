@@ -43,7 +43,7 @@ To use the above `defaults.json` it is as easy to remove the configuration entri
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["local>MyProjectName/RenovateBot:default"],
+  "extends": ["local>MyProjectName/RenovateBot:defaults"],
   ...
 ```
 
