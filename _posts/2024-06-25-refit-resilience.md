@@ -3,7 +3,7 @@ layout: post
 title: Adding Resilience to Refit and your own code
 author: Tomasz Cielecki
 comments: true
-date: 2024-06-25 18:00:00 +0200
+date: 2024-06-25 16:00:00 +0200
 tags:
 - dotnet
 - Android
