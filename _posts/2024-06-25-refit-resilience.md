@@ -128,6 +128,8 @@ public sealed class AppInstaller(
 
 Hope this helps a bit understanding how the resilience libraries work, but just like Polly you can use it with anything you want to retry, with some nice defaults for HTTP requests.
 
+If you want to [read more about Resilience Milan also wrote a really nice blog post][milan], which you might find interesting.
+
 [refit]: https://github.com/reactiveui/refit "Refit automatic type-safe REST client library"
 [di]: https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection "Microsoft Dependency Injection docs"
 [httpclientfactory]: https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests "Using HttpClientFactory to add resiliency in Apps"
@@ -135,3 +137,4 @@ Hope this helps a bit understanding how the resilience libraries work, but just 
 [mer]: https://www.nuget.org/packages/Microsoft.Extensions.Resilience "NuGet.org Microsoft.Extensions.Resilience"
 [mehr]: https://www.nuget.org/packages/Microsoft.Extensions.Http.Resilience  "NuGet.org Microsoft.Extensions.Http.Resilience"
 [defaults]: https://github.com/dotnet/extensions/blob/main/src/Libraries/Microsoft.Extensions.Http.Resilience/README.md#usage-examples "Defaults for Standard ResilienceHandler"
+[milan]: https://www.milanjovanovic.tech/blog/building-resilient-cloud-applications-with-dotnet "Blog post about resilient .NET cloud Applications"
