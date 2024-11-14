@@ -3,7 +3,7 @@ layout: post
 title: .NET 9 Gotchas!
 author: Tomasz Cielecki
 comments: true
-date: 2024-11-14 18:40:00 +0100
+date: 2024-11-14 17:15:00 +0100
 tags:
 - dotnet
 - Android
