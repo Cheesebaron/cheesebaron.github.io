@@ -10,6 +10,8 @@ tags:
 - iOS
 ---
 
+> Updated 17. Nov 2024: Added a bit more info on the new registrar
+
 [.NET 9 was just released][net9announcement] and it has brought with it a lot of cool new performance features. Some that might do a lot of good things. Some of them might cause you a little bit of a headache.
 
 After the announcement I dove straight into upgrading stuff to .NET 9 and I have found a few things that tripped up the smoothness of the experience a bit. However, nothing that forced me to abandon all hope and stick to .NET 8. The experience overall was pretty good. Simply updating TFM from `net8.0-{ios|android}` to `net9.0-{ios|android}` and updating a few `Microsoft.*` and `System.*` packages I referenced to the new and shiny `9.0.0` versions on NuGet.
@@ -18,7 +20,7 @@ After the announcement I dove straight into upgrading stuff to .NET 9 and I have
 
 So a few things you might want to know, to help you along.
 
-### iOS Objective C Registrar
+### New iOS Objective-C Registrar
 
 On iOS as announced in their [Release notes Wiki page][iosreleasenotes], there is a new Objective C registrar, to better support NativeAOT. This may cause you issues with binding libraries, which for instance I found with the package ImageCaching.Nuke which I use and maintain. That at runtime, with the new registrar, I would get this nice runtime exception as soon as I would call in to the library:
 
@@ -46,6 +48,8 @@ Not super nice. But, as the release notes say, you can [opt-out of the new regis
 ```
 
 This fixes the issue and iOS is happy again. Sweet!
+
+This will supposedly get fixed in a future update to the iOS workloads and should not require you to change anything in the Binding Library.
 
 ### Android Default Runtime Identifiers
 
