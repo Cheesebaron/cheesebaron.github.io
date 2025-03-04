@@ -1,0 +1,30 @@
+---
+layout: none
+permalink: .well-known/apple-app-site-association
+---
+{
+  "activitycontinuation": {
+    "apps": [
+      "3V8CC856AY.dk.TrackMan.Range",
+      "J9N865UDJ4.dk.trackman-enterprise.range-labs"
+    ]
+  },
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "3V8CC856AY.dk.TrackMan.Range",
+          "J9N865UDJ4.dk.trackman-enterprise.range-labs",
+          "3V8CC856AY.dk.trackman.nextgolftourcameraapp",
+          "3V8CC856AY.dk.trackman.roundrecorderapp"
+        ],
+        "components": [
+          {
+            "/": "/redirect/*",
+            "comment": "Matches any URL whose path contains pin"
+          }
+        ]
+      }
+    ]
+  }
+}
