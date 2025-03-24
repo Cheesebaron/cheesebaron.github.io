@@ -7,6 +7,7 @@ date: 2020-02-03 14:00:00 +0200
 tags:
 - Xamarin
 - Xamarin.iOS
+- dotnet
 ---
 
 I just had the task to figure out why we had an App crashing randomly on us all of the sudden. The App is distrubuted through AppCenter only, as a Enterprise build. Turned out that the provisioning profile had expired hence it started to fail.

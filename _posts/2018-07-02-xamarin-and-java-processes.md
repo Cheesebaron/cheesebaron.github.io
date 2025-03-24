@@ -9,6 +9,7 @@ tags:
 - Xamarin.Android
 - Java
 - Process
+- dotnet
 ---
 
 I have seen this question pop up from time to time, where someone asks how to run a native process on Android.

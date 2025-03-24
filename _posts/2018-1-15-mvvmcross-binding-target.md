@@ -8,6 +8,7 @@ tags:
 - Xamarin
 - MvvmCross
 - Binding
+- dotnet
 ---
 
 I had some colleagues, who where a bit confused about what target is when creating bindings. Lets first establish what Source and Target means when talking about a binding:

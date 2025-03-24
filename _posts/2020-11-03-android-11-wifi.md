@@ -9,6 +9,7 @@ tags:
 - Xamarin.Android
 - Network
 - WiFi
+- dotnet
 ---
 
 Android 10 messed up royally with removing the API to add networks and connect to it on a users device. The API was removed and as an alternative they gave us:

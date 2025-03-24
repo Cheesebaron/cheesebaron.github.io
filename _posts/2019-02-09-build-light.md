@@ -9,6 +9,7 @@ tags:
 - Azure DevOps
 - Xamarin
 - PlatformIO
+- dotnet
 ---
 
 Click to watch the YouTube video:

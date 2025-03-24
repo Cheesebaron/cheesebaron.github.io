@@ -8,6 +8,7 @@ tags:
 - Xamarin
 - Xamarin.Android
 - Network
+- dotnet
 ---
 
 I've been debugging some network issues in one of my Apps recently. To help me I acquired the help of the excellent macOS Application [Charles Proxy][chls]. I needed to see what was sent to and from the servers the App communicates with and also check the contents. One issue though, all the calls are through SSL, so without a little bit of setup, you will not get far checking the contents of the calls.

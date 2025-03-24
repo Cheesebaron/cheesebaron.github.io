@@ -8,6 +8,7 @@ tags:
 - Xamarin
 - Layout
 - Proguard
+- dotnet
 ---
 
 I have made an App which uses RelativeLayout and LinearLayout a lot. I wanted to convert some of these layouts to use ConstraintLayout, which in many cases simplifies a layout. Also when using LinearLayout with weights it can improve performance as well.

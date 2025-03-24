@@ -8,6 +8,7 @@ tags:
 - Xamarin
 - Xamarin.Android
 - Network
+- dotnet
 ---
 
 Android 10 was recently released and it introduces a bunch of changes in terms of Privacy. This means that access to `/proc/net` from the Linux sub-system has been restricted, which requires you to use `NetworkStatsManager` and `ConnectivityManager` to get VPN information.

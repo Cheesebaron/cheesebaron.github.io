@@ -7,6 +7,7 @@ date: 2020-06-01 00:00:00 +0000
 tags:
 - Xamarin
 - MvvmCross
+- dotnet
 ---
 
 This blog post is a part of Louis Matos's Xamarin Month, where this months topic is Code Snippets. For more information [take a look at his blog][lmts] and see the list of all the other auhtors who are participating. There will be a new post each day of the month, which is super cool!

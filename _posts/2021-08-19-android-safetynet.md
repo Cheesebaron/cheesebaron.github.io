@@ -7,6 +7,7 @@ date: 2021-08-19 23:00:00 +0100
 tags:
 - Xamarin
 - Xamarin.Android
+- dotnet
 ---
 
 > All the code in this post can be [found on GitHub][sample]

@@ -7,6 +7,7 @@ date: 2020-02-30 19:30:00 +0100
 tags:
 - Xamarin
 - Xamarin.Android
+- dotnet
 ---
 
 Some years ago I ported over some Java color pickers to work with Xamarin. However, it didn't really cross my mind to release these as a NuGet package. However, due to demand I finally took the time to do so.

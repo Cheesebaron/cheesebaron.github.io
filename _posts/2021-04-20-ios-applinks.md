@@ -8,6 +8,7 @@ tags:
 - Xamarin
 - Xamarin.iOS
 - AppLinks
+- dotnet
 ---
 
 I was lucky to be tasked to get Universal AppLinks working, for a cool feature in the TrackMan Golf App I work on at work. I thought this would be super easy to do. But, oh how naive and wrong I was.

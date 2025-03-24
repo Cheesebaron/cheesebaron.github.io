@@ -7,6 +7,7 @@ date: 2020-08-18 22:30:00 +0200
 tags:
 - Xamarin
 - MvvmCross
+- dotnet
 ---
 
 > If you are looking for samples scroll down to the bottom of this blog post

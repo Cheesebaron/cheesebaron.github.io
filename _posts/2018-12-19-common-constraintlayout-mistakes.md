@@ -7,6 +7,7 @@ date: 2018-12-19 21:25:00 +0100
 tags:
 - Xamarin
 - Xamarin.Android
+- dotnet
 ---
 
 Recently I have been working a lot with converting nested layouts, into flattened layouts using [ConstraintLayout][cl] as their root element.
