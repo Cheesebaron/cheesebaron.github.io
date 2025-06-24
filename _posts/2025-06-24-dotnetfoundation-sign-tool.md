@@ -17,6 +17,7 @@ Historically the way signing worked was using the [SignClient][signclient] .NET 
 
 With help from the .NET foundation team, I have managed to get MvvmCross packages signed again after the deprecation of the other tool. Which was suprisingly straight forward. MvvmCross uses GitHub Actions Windows runners and signing is now done by:
 
+{% raw %}
 1. Download the new [`sign`][sign] tool
 2. Sign in to Azure CLI
 3. Sign packages which are in the `${{ github.workspace}}/output` folder
@@ -44,6 +45,7 @@ With help from the .NET foundation team, I have managed to get MvvmCross package
     --azure-key-vault-url "${{ secrets.SIGN_AZURE_VAULT_URL }}"
     --azure-key-vault-certificate "${{ secrets.SIGN_AZURE_KEY_VAULT_CERTIFICATE_ID }}"
 ```
+{% endraw %}
 
 The secrets are provided to you by the .NET Foundation.
 
