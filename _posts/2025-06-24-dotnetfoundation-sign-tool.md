@@ -56,4 +56,4 @@ You can double check that the package has been signed either using the NuGet pac
 [signclient]: https://www.nuget.org/packages/SignClient
 [sign]: https://www.nuget.org/packages/sign
 [nugetinfo]: https://nuget.info/
-[nugetinfoss]: {{ site.url }}/assets/images/sign/nugetifno.png "Screenshot of NuGet Info showing Digital Signatures pane"
+[nugetinfoss]: {{ site.url }}/assets/images/sign/nugetinfo.png "Screenshot of NuGet Info showing Digital Signatures pane"
