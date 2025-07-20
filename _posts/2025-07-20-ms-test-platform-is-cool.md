@@ -52,6 +52,10 @@ This gives me both formats which I then can use for whatever other tools I use. 
 
 Gathering code coverage with Microsoft Testing Platform is also made super easy, previously I was relying on another package called `coverlet.collector`, however this package is designed for [VSTest][vstest] and does not work with Microsoft Testing Platform. Instead you can use their own extension [`Microsoft.Testing.Extensions.CodeCoverage`][codecoverageext], it can export code coverage reports in a VS binary format, XML and cobertura.
 
+```xml
+<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage">
+```
+
 So in a very similar fashion like the various types of test report formats, adding code coverage after having added the NuGet package is done in a very similar fashion. So piecing everything together:
 
 ```bash
