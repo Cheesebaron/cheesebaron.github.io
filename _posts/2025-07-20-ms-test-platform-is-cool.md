@@ -75,6 +75,7 @@ So as I mentioned previously being able to export to various formats is a very p
 
 This is powered by the [`ctrf-io/github-test-reporter` action][gh-test-reporter] configured like this:
 
+{% raw %}
 ```yaml
 - name: Publish Test Report
   uses: ctrf-io/github-test-reporter@073c73100796cafcbfdc4722c7fa11c29730439e #v1.0.18
