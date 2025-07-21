@@ -127,7 +127,7 @@ var runSettings = new DotNetRunSettings
 context.DotNetRun(project.FullPath, runSettings);
 ```
 
-There is a [d]iscussion going on requesting to add the Microsoft Testing Platform capabilities to Cake][https://github.com/cake-build/cake/issues/4462], so hopefully this will come in the future.
+There is a [discussion going on requesting to add the Microsoft Testing Platform capabilities to Cake](https://github.com/cake-build/cake/issues/4462), so hopefully this will come in the future.
 
 I really like the flexibility and capabilities that MS Testing Platform with xUnit gives me. I was able to migrate to Microsoft Testing Platform pretty easily and simplify some of my CI setup. Also the fact that you would be able to have tests using various frameworks and provide the same arguments to the runner is something that seems pretty interesting too. Since Microsoft Testing Platform would be taking care of the running and argument processing. This would allow someone to easily understand the setup but also swap it out for something else without having to mess with the arguments.
 
