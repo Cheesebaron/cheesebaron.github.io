@@ -102,6 +102,7 @@ This is powered by the [`ctrf-io/github-test-reporter` action][gh-test-reporter]
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+{% endraw %}
 
 ## Running builds with Cake
 
