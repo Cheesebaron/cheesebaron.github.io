@@ -48,6 +48,20 @@ dotnet run --project UnitTest/UnitTest.csproj -- \
 
 This gives me both formats which I then can use for whatever other tools I use. Great!
 
+When using [NUnit][nunit] you can also specify its reports with:
+
+```bash
+--report-nunit --report-nunit-filename UnitTestReport.xml
+```
+
+And for [xUnit][xunit] reports you can do:
+
+```bash
+--report-xunit --report-xunit-filename UnitTestReport.xml
+```
+
+So you have high flexibility of exporting whatever you need.
+
 ## Code coverage
 
 Gathering code coverage with Microsoft Testing Platform is also made super easy, previously I was relying on another package called `coverlet.collector`, however this package is designed for [VSTest][vstest] and does not work with Microsoft Testing Platform. Instead you can use their own extension [`Microsoft.Testing.Extensions.CodeCoverage`][codecoverageext], it can export code coverage reports in a VS binary format, XML and cobertura.
@@ -89,6 +103,31 @@ This is powered by the [`ctrf-io/github-test-reporter` action][gh-test-reporter]
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+## Running builds with Cake
+
+I use [Cake Build][cake] in a lot of my build pipelines, since I can run all the steps locally and debug without need of committing and triggering stuff in a CI pipeline.
+
+Currently there is no Settings class that know of all the combinations of what Microsoft Testing Platform can receive, but you can still use `dotnet run` to start your tests. For this I use a code block looking something like this:
+
+```csharp
+var projectName = project.GetFilenameWithoutExtension();
+var runSettings = new DotNetRunSettings
+{
+    NoBuild = true,
+    Configuration = context.BuildConfiguration,
+    Verbosity = context.VerbosityDotNet,
+    ArgumentCustomization = args => args
+        .Append("-- ")
+        .Append($"--report-xunit-trx --report-xunit-trx-filename {projectName}.trx")
+        .Append($"--report-ctrf --report-ctrf-filename {projectName}.ctrf.json")
+        .Append($"--coverage --coverage-output {projectName}.coverage --coverage-output-format cobertura")
+};
+
+context.DotNetRun(project.FullPath, runSettings);
+```
+
+There is a [d]iscussion going on requesting to add the Microsoft Testing Platform capabilities to Cake][https://github.com/cake-build/cake/issues/4462], so hopefully this will come in the future.
+
 I really like the flexibility and capabilities that MS Testing Platform with xUnit gives me. I was able to migrate to Microsoft Testing Platform pretty easily and simplify some of my CI setup. Also the fact that you would be able to have tests using various frameworks and provide the same arguments to the runner is something that seems pretty interesting too. Since Microsoft Testing Platform would be taking care of the running and argument processing. This would allow someone to easily understand the setup but also swap it out for something else without having to mess with the arguments.
 
 Another outcome from writing this article is getting to know of [TUnit][tunit], which seems to take a slightly different approach to xUnit and other frameworks and base fully on top of Microsoft Testing Platform instead of adopting it. I might have to check this one out in the near future and see what it can do! The promise of heavily relying on Source Generators, supporting NativeAOT and fully trimmable sounds great.
@@ -104,3 +143,4 @@ Another outcome from writing this article is getting to know of [TUnit][tunit], 
 [codecoverageext]: https://www.nuget.org/packages/Microsoft.Testing.Extensions.CodeCoverage
 [ghactions-summary]: {{ site.url }}/assets/images/mstestplat/gh-actions.png "Screenshot of unit test summary in a GitHub actions run"
 [gh-test-reporter]: https://github.com/ctrf-io/github-test-reporter
+[cake]: https://cakebuild.net/
