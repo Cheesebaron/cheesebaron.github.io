@@ -8,6 +8,7 @@ tags:
 - ci
 - azure devops
 - nuget
+- renovate
 ---
 
 Last month [I wrote about how cool Renovate Bot is][post], updating the dependencies in your repositories. It works anywhere, I got it to work in Azure DevOps Pipelines running every night at 3 AM, while everyone is sleeping and no one else is using the build agents for important stuff.

@@ -8,6 +8,7 @@ tags:
 - ci
 - azure devops
 - nuget
+- renovate
 ---
 
 If you haven't already noticed by the amount of blog posts about Renovate Bot, I am really loving it and its feature set.
