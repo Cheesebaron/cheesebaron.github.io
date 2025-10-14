@@ -171,7 +171,55 @@ hostRules: [
 
 This should be similar for other hostTypes too when used with GitHub Packages.
 
-Otherwise the stuff in my previous renovate posts still applies and can be used in GitHub as well.
+If you want to provide your own token or you are authenticating some other source. Just make sure you prefix the environment variable with `RENOVATE_`. So something like this;
+
+{% raw %}
+```yml
+- name: Self-hosted Renovate
+  uses: renovatebot/github-action@v43
+  with:
+    configurationFile: renovate-config.js
+    token: '${{ steps.get_token.outputs.token }}'
+  env:
+    RENOVATE_MY_TOKEN: '${{ secrets.MY_TOKEN }}'
+```
+{% endraw %}
+
+Then in the config you can use it as `process.env.RENOVATE_MY_TOKEN`.
+
+## Troubleshooting
+
+When troubleshooting Renovate, you can run it dry, so it won't open any Pull Requests by adding `dryRun: 'full'` in the config:
+
+```js
+module.exports = {
+  dryRun: 'full',
+  ...
+```
+
+Then you can also increase the verbosity of the log by adding the environment variable `LOG_LEVEL` with a supported log level. I.e.:
+
+{% raw %}
+```yml
+- name: Self-hosted Renovate
+  uses: renovatebot/github-action@v43
+  with:
+    configurationFile: renovate-config.js
+    token: '${{ steps.get_token.outputs.token }}'
+  env:
+    LOG_LEVEL: debug
+```
+{% endraw %}
+
+This should spit out much more information on what Renovate is doing and you can attempt to deduct what went wrong.
+
+Eventually you should see pull requests flowing in on your repos looking something like this:
+
+[![pr-example][pr-example]][pr-example]
+
+> Note: you will see warnings on your pull requests like in the example above if something goes wrong when Renovate is running. This is your cue to troubleshoot these.
+
+Otherwise the stuff in my previous renovate posts still applies and can be used on GitHub as well.
 
 [renovate-post]: {% post_url 2024-01-11-renovate %}
 [more-renovate-post]: {% post_url 2024-02-12-more-renovate %}
@@ -184,3 +232,4 @@ Otherwise the stuff in my previous renovate posts still applies and can be used 
 [gh-pat]: https://github.com/settings/tokens
 [gh-pat-sso]: {{ site.url }}/assets/images/renovate-gh/gh-pat-sso.png "Screenshot of Configure SSO option on GitHub Personal Access Token page"
 [renovate-regex]: https://github.com/renovatebot/github-action/blob/e8fc25c747f24032368eb5dfd40ab54491f4640c/src/input.ts#L12
+[pr-example]: {{ site.url }}/assets/images/renovate-gh/pr-example.png "Screenshot of Pull Request from Renovate with a warning"
