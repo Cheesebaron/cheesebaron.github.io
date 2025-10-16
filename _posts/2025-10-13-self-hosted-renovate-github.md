@@ -64,6 +64,8 @@ Then the important step is to provide the GitHub App the correct permissions for
 
 You can always add more permissions later, but they would need to be authorized per repo or org you added the App for, so better get this right to begin with.
 
+> If you want to restore private packages from your organization using the GitHub Apps token, I recommend adding `Read` scope to `Organization Private Registries`.
+
 Once you have created it, you will at the top of the General tab for the Application, see an `App ID`. This ID, you will need later for authentication.
 
 There should be a prompt at the top of the page that you need to generate a Private key. Save this file as we need this later too for authentication. The contents of the file should start with something like `-----BEGIN RSA PRIVATE KEY-----` you need to include both this and the ending like when storing the secret.
@@ -156,7 +158,7 @@ A couple of things I struggled with which I wish I had know beforehand.
 2. The GitHub Token from the system `secrets.GITHUB_TOKEN` even when specifying `packages:read` permission, does not get access to other than the repo we are running in currently packages
 3. Using `RENOVATE_X_GITHUB_HOST_RULES` does not work as it uses `secrets.GITHUB_TOKEN` under the hood and by design is broken, do not chase this option
 
-With that in mind. Authenticating GitHub Packages, such as maven, npm and NuGet is fairly straight forward. You will need to add a `hostRule` to specify how to authenticate. Since we already have either a PAT or GitHub App Token with read permissions to packages, then we can just use that token in your rule. So in your `renovate-config.js` you can add:
+With that in mind. Authenticating GitHub Packages, such as maven, npm and NuGet is fairly straight forward. You will need to add a `hostRule` to specify how to authenticate. Since we already have either a PAT or GitHub App Token (given you added Read permission for Organization Private Registries) with read permissions to packages, then we can just use that token in your rule. So in your `renovate-config.js` you can add:
 
 ```js
 hostRules: [
