@@ -73,6 +73,7 @@ Additionally you can select which repositories you want to install the App for. 
 
 With the App Installed you can now start using it in your GitHub Actions workflows. To authenticate you can add the step:
 
+{% raw %}
 ```yml
 - name: Get token
   id: github-app-token
@@ -85,6 +86,7 @@ With the App Installed you can now start using it in your GitHub Actions workflo
       MyRepository
       MyOtherRepository
 ```
+{% endraw %}
 
 This step will authenticate the GitHub App against the specified repositories. If you don't specify `repositories` it will authenticate all the repositories it has been installed into.
 
