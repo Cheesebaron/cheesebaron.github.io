@@ -24,6 +24,7 @@ Main points if you adopt Refit v14, is to make a few minor changes to your code.
 - Instead of using `RestService.For<T>`, use `RestService.ForGenerated<T>`
 - If you are using HttpClientFactory instead of using `AddRefitClient` use `AddRefitGeneratedClient`
 - If you are using models to provide query string parameters, Refit now also supports `[JsonPropertyName]` on that model instead of using `[AliasAs]`. Meaning you could have a model like so and the name of the paramerter would be picked up from the [`JsonPropertyName`]:
+
 ```csharp
 record Filter([property: JsonPropertyName("file_name")] string FileName);
 
