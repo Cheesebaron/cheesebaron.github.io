@@ -58,13 +58,15 @@ So running your tests could look as follows for Azure DevOps. In my examples her
 
 {% raw %}
 ```bash
-dotnet test --report-trx --report-trx-filename {asm}_{tfm}_{time}.trx \
-            --coverage --coverage-output {asm}_{tfm}_{time}.coverage \
-            --coverage-output-format cobertura \
-            --report-azdo \
-            --publish-azdo-test-results \
-            --report-azdo-upload-artifacts files
-            --diagnistic
+dotnet test \
+  --report-trx \
+  --report-trx-filename {asm}_{tfm}_{time}.trx \
+  --coverage --coverage-output {asm}_{tfm}_{time}.coverage \
+  --coverage-output-format cobertura \
+  --report-azdo \
+  --publish-azdo-test-results \
+  --report-azdo-upload-artifacts files \
+  --diagnistic
 ```
 {% endraw %}
 
@@ -83,10 +85,13 @@ For GitHub Actions your test run could look like:
 
 {% raw %}
 ```bash
-dotnet test --report-trx --report-trx-filename {asm}_{tfm}_{time}.trx \
-            --coverage --coverage-output {asm}_{tfm}_{time}.coverage \
-            --coverage-output-format cobertura \
-            --report-gh
+dotnet test \
+  --report-trx \
+  --report-trx-filename {asm}_{tfm}_{time}.trx \
+  --coverage \
+  --coverage-output {asm}_{tfm}_{time}.coverage \
+  --coverage-output-format cobertura \
+  --report-gh
 ```
 {% endraw %}
 
