@@ -40,7 +40,7 @@ CoreCLR Release builds now use partial ReadyToRun compilation by default, improv
 
 For Apps that do not use MAUI UI framework you might have to create your own `.mibc` profile instead of using the default one that ships with the workloads. I will cover this in a future blog post. But have a look at the [`dotnet-pgo` tool and docs](https://github.com/dotnet/runtime/blob/main/docs/design/features/dotnet-pgo.md) and there are [some instructions in this maui-labs PR to automate this with AI](https://github.com/dotnet/maui-labs/pull/111).
 
-If you are consuming libraries that are targeting 
+If you are consuming libraries that are using the Xamarin templates for libraries. So not targeting `net6.0-android` or above, then you will get warnings when building your project.
 
 ## Removal of support for Android x86
 
