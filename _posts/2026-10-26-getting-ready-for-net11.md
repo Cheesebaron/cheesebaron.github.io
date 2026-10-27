@@ -38,7 +38,7 @@ CoreCLR Release builds now use partial ReadyToRun compilation by default, improv
 
 > ReadyToRun (R2R) is the new terminology of Ahead of Time (AOT) compiling a CoreCLR App which has different modes depending on which platform your are targeting and properties set in your project. I.e. for Android partial ReadyToRun is the default where parts of the App is AOT compiled, mainly startup code, where rest is JIT compiled for App size and startup times.
 
-For Apps that do not use MAUI UI framework you might have to create your own `.mibc` profile instead of using the default one that ships with the workloads. I will cover this in a future blog post. But have a look at the [`dotnet-pgo` tool and docs](https://github.com/dotnet/runtime/blob/main/docs/design/features/dotnet-pgo.md) and there are [some instructions in this maui-labs PR to automate this with AI](https://github.com/dotnet/maui-labs/pull/111).
+For Apps that do not use MAUI UI framework you might have to create your own `.mibc` profile instead of using the default one that ships with the workloads. I have covered this process [in the blog post about creating PGO profiles for .NET 11 Android Apps.][pgo-profiling]
 
 If you are consuming libraries that are using the Xamarin templates for libraries. So not targeting `net6.0-android` or above, then you will get warnings when building your project.
 
@@ -184,3 +184,4 @@ The information in this blog post is a digest of the release notes that were pub
 - [.NET 11 RC1 .NET MAUI release notes](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/dotnetmaui.md)
 - [.NET 11 RC2 .NET MAUI release notes](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/dotnetmaui.md)
 
+[pgo-profiling]: {% post_url 2026-10-27-creating-pro-profile-for-net11-android %}
