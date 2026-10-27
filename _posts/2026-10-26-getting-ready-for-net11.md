@@ -184,4 +184,4 @@ The information in this blog post is a digest of the release notes that were pub
 - [.NET 11 RC1 .NET MAUI release notes](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/dotnetmaui.md)
 - [.NET 11 RC2 .NET MAUI release notes](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/dotnetmaui.md)
 
-[pgo-profiling]: {% post_url 2026-10-27-creating-pro-profile-for-net11-android %}
+[pgo-profiling]: {% post_url 2026-10-27-creating-pgo-profile-for-net11-android %}
